@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+    <title>Solytaire test page</title>
+
+    <meta charset="UTF-8">
+    <meta name="author" content="DJ Daddy Heely Rave, SpiderJJ and IBAN">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Solytaire test page">
+
+    <script src="games/solitaire.js" type="text/javascript"></script>
+
+
+
+    <script src="cardgamecore.js" type="text/javascript"></script>
+    <script src="solitaire.js" type="text/javascript"></script>
+
+    <style>
+        html {
+            color: white;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        .solitaireprefs {
+            border-radius: 15px;
+        
+            background-color: aqua;
+        }
+
+        .solitaireprefs p, h3, h4 {
+            color: black
+        }
+
+        .solitaireprefs form {
+            width: 20%;
+            height: 20%;
+            align-items: center;
+        }
+        
+    </style>
+
+</head>
+
+<body>
+
+    <div id="putgamehere" style="background-color: #008001; border-radius: 15px; border-style: double;"></div>
+    <script>
+        window.onload = function () {
+            if( !document.getElementById ) { return; } // To be nice to old browsers
+                var game1 = new solitaireGame('solitaire1',document.getElementById('putgamehere'));
+                game1.addImagePack('cardsets/h36/',[['walk','Mountain walk'],['midnightsun','Midnight sun']],'.png',25,36,'Northern Norway');
+                game1.addImagePack('cardsets/h96/',[['bluepattern','Blue pattern'],['blue','Plain blue'],['x','Red X']],'.gif',71,96,'Once in a Lifetime');
+                game1.addImagePack('cardsets/h135/',[['mtv','MTV Messyng'],['mrbinbin','Mr Bin Bin']],'.png',90,135,'Messyng');
+                game1.startGame();
+        }
+    </script>
+</body>
+
+</html>

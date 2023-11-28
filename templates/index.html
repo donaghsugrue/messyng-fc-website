@@ -1,0 +1,1215 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <section id = "sub-header" title = "Sub header">
+        <noscript>
+            Your browser does not support JavaScript and you therefore will miss a large amount of the craic on
+            this page.
+        </noscript>
+
+        <!-- <script src="advert.js"></script> -->
+        <figure id = "advert">
+            <a href = "____" target = "_blank">
+                <img src = "{{ url_for('static', filename='media/mock_ads/advert2.png') }}" id = "advertImg">
+            </a>
+            <figcaption>advertisement</figcaption>
+        </figure>
+
+        <div id = "pageidentifier">
+            <aside>
+                <h1>Messyng FC Band</h1>
+                <h2>&lt;xXx&lowbar;M355YNG&lowbar;&#119891;&cent;&lowbar;xXx&gt;</h2>
+            </aside>
+
+            <q> "You Miss 100% Of The Shots you Don't Take - Wayne Gretsky" - Michael Scott </q>
+        </div>
+    </section>
+
+
+
+    <div id = "page-content">
+
+        <section id = "about-container" aria-labelledby = "about-header">
+
+            <nav class = "mainnav">
+                <a href = "{{ url_for('index') }}">All</a>
+                <a href = "{{ url_for('friends') }}">Friends</a>
+                <a href = "{{ url_for('flashbox') }}">Flashbox</a>
+                <a href = "{{ url_for('photos') }}">Photos</a>
+                <a href = "{{ url_for('widget') }}">Widget</a>
+                <a href = "{{ url_for('whiteboard') }}">Whiteboard</a>
+                <a href = "{{ url_for('solitayre') }}">Solitayre</a>
+                <a href = "{{ url_for('blog') }}">Blog</a>
+                <a href = "{{ url_for('quiz') }}">Quiz</a>
+                <a href = "{{ url_for('polls') }}">Polls</a>
+                <a href = "{{ url_for('events') }}">Events</a>
+                <a href = "{{ url_for('maryo') }}">Maryo</a>
+                <a href = "{{ url_for('wall') }}">Wall</a>
+            </nav>
+
+            <article id = "about">
+
+                <div class = "about-col left">
+
+                    <figure>
+                        <img id = "profilepic" src = "{{ url_for('static', filename='media/logos_pfps/profile_pic.png') }}" alt = "Messyng FC's profile picture">
+                        <figcaption>Messyng FC &and;&lowbar;&and;</figcaption>
+                    </figure>
+                    
+                    <div>
+                        <p>
+                            males
+                        </p>
+
+                        <p>
+                            from Ireland
+                        </p>
+
+                        <p>
+                            hometown North Kerry
+                        </p>
+
+                        <p>
+                            I am <span id = "relationship-status">It's Complicated</span>
+                        </p>
+
+                    </div>
+
+                    <div>
+                        <p>
+                            <!-- There's surely a well documented way of display page views -->
+                            Profile views: <span id = "profile-views">150</span>
+                        </p>
+                        
+                        <p>
+                            <!-- just display the date the site goes live -->
+                            Member since: <span id = "member-since">04/04/2004</span>
+                        </p>
+                        
+                        <p>
+                            <!-- display the last time the repo was updated -->
+                            Last active: <span id = "last-active">4 hours</span>
+                        </p>
+
+                        <p>
+                            <!-- Could be fun to randomise the text here regardless of what the actual URL is -->
+                            URL: <a href = "">www.messy.ng</a>
+                        </p>
+                    </div>
+                                 
+                    <div>
+                        <p>
+                            <a href = "{{ url_for('contact') }}">
+                                <!-- open contact form -->
+                                Send a message
+                            </a>
+                        </p>
+
+                        <p>
+                            <a href = "">
+                                <!-- link to a drop box or mega of all the assets -->
+                                Use This Skin
+                            </a>
+                        </p>
+
+                        <p>
+                            <a href = "">
+                                <!-- share to socials thing -->
+                                Share This Profile
+                            </a>
+                        </p>
+
+                        <p>
+                            <a href = "">
+                                <!-- Is there a way to self report and include this IP in a list that can't view the page? -->
+                                Block
+                            </a>
+                        </p>
+
+                        <p>
+                            <!-- Might be fun to randomise the email addresses here and have one that's an actual oireachtas email and one that's ours -->
+                            <a href = "mailto:theguards@theguards.ie">
+                                Report Abuse To Bebo
+                            </a>
+                        </p>
+                    </div>
+
+                    <div>
+                        <span id = "luv-counter">0 ❤️</span>
+                        <button onclick = "incrementClick()">Share The Luv</button>
+                        <!-- button onclick = "resetCounter()">Clear</button -->
+                    </div>
+
+                </div>
+    
+                <div class = "about-col">
+
+                    <h2 id = "about-header">About Me</h2>
+
+                    <div>
+                        <h3>Tagline</h3>
+                        <p>
+                            Rawr means I love you in dinosaur! (˘ᴗ˘)
+                            Oh and you lost the game!!! ahaha
+                            お(^o^)や(^O^)す(^｡^)みぃ(^-^)ﾉ
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Messyng FC said</h3>
+                        <p>
+                            "Anyone any links to watch I'm A Celeb on Putlocker?" - 3d ago
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Me, Myself & I</h3>
+                        <p>
+                            Fuck
+                            the haters, the assholes, the people get to you, the whiners, the people that cheat you, tyhe people
+                            who pretend to be your fiend, the greey, the deceiving, those who purposely lie, whose who are
+                            purposely rude, the hypocritical, the people whodon't appreciate you.<br>
+                            <br>
+                            __♥__♥_____♥__♥___ Put This<br>
+                            _♥_____♥_♥_____♥__ Heart<br>
+                            _♥______♥______♥__ On Your<br>
+                            __♥_____/______♥__ Page If<br>
+                            ___♥____\_____♥___ You Had<br>
+                            ____♥___/___♥_____ Your Heart<br>
+                            ______♥_\_♥_______ Broken<br>
+                            ________♥_________…………….<br>
+                            <br>
+                            Neoliberals got me like (╯°□°）╯︵ ┻━┻ come at me bro!!!!!!!1<br>
+                            ☭☭☭☭☭☭☭ <br>
+                            <br>
+                            ────(♥)(♥)(♥)────(♥)(♥)(♥) __ ɪƒ ƴσυ'ʀє αʟσηє,<br>
+                            ──(♥)██████(♥)(♥)██████(♥) ɪ'ʟʟ ɓє ƴσυʀ ѕɧα∂σѡ.<br>
+                            ─(♥)████████(♥)████████(♥) ɪƒ ƴσυ ѡαηт тσ cʀƴ,<br>
+                            ─(♥)██████████████████(♥) ɪ'ʟʟ ɓє ƴσυʀ ѕɧσυʟ∂єʀ.<br>
+                            ──(♥)████████████████(♥) ɪƒ ƴσυ ѡαηт α ɧυɢ,<br>
+                            ────(♥)████████████(♥) __ ɪ'ʟʟ ɓє ƴσυʀ ρɪʟʟσѡ.<br>
+                            ──────(♥)████████(♥) ɪƒ ƴσυ ηєє∂ тσ ɓє ɧαρρƴ,<br>
+                            ────────(♥)████(♥) __ ɪ'ʟʟ ɓє ƴσυʀ ѕɱɪʟє.<br>
+                            ─────────(♥)██(♥) ɓυт αηƴтɪɱє ƴσυ ηєє∂ α ƒʀɪєη∂,<br>
+                            ───────────(♥) __ ɪ'ʟʟ ʝυѕт ɓє ɱє.<br>
+                            <br>
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Music</h3>
+                        <p>
+                            ╔══╗ <br>
+                            ║██║ <br>
+                            ║(O)║♫ ♪ ♫ ♪<br>
+                            ╚══╝<br>
+                            ▄ █ ▄ █ ▄ ▄ █ ▄ █ ▄ █<br>
+                            Min- - - - - - - - - - - -●Max<br>
+                            <br>
+                            Omg there's so many!!! Everything except for rap or country......... or real like screamy shouty heavy metal where you can't even hear what theyy saying<br>
+                            Silverstein, All Time Low, You Me At Six, Young Guns, Four Year Strong, Hawthorne Heights, Forever The Sickest Kids, Problem Patterns, Bokotono, Cassavettes, Cruiser, His Fathers Voice, CMAT, Fears, Junior Brother, Greywind (♥ᴗ♥)♬♩♪<br>
+                            <br>
+                            _¶¶¶¶_________________________¶¶<br>
+                            __¶¶¶¶¶_______________________¶¶<br>
+                            __¶¶__¶¶_____________________¶¶¶¶<br>
+                            ___¶¶__¶¶____________________¶¶¶¶¶<br>
+                            ____¶¶_¶¶¶___________________¶¶__¶¶<br>
+                            ____¶¶_¶¶¶___________________¶¶__¶¶<br>
+                            _____¶¶¶¶¶___________________¶¶_¶¶¶<br>
+                            _____¶¶¶¶______________¶¶¶¶ ¶¶__¶¶<br>
+                            ____¶¶¶¶_____________¶¶¶¶¶¶¶¶¶_¶¶<br>
+                            ___¶¶¶_¶¶__¶¶¶_______¶¶¶¶¶¶¶¶<br>
+                            __¶¶¶___¶¶¶¶¶¶¶¶¶_____¶¶¶¶¶¶<br>
+                            _¶¶¶¶__¶¶¶¶___¶¶¶¶_______________________¶¶<br>
+                            _¶¶¶__¶¶¶¶_¶¶¶__¶¶¶__________________¶¶¶¶¶¶<br>
+                            ¶¶¶¶__¶¶¶¶¶¶¶¶¶__¶¶¶______________¶¶¶¶¶¶¶¶¶<br>
+                            _¶¶¶__¶¶¶_¶¶__¶__¶¶¶___________¶¶¶¶¶¶¶___¶¶<br>
+                            _¶¶¶¶__¶¶¶¶¶¶¶¶__¶¶________¶¶¶¶¶¶¶¶______¶¶<br>
+                            __¶¶¶¶____¶¶¶__¶¶¶______¶¶¶¶¶¶¶¶¶¶_______¶¶<br>
+                            ___¶¶¶¶¶¶___¶¶¶¶¶______¶¶¶¶¶¶¶___¶¶_______¶¶<br>
+                            _____¶¶¶¶¶¶¶¶¶¶________¶¶¶¶¶_____¶¶___¶¶¶¶¶¶<br>
+                            ________¶¶¶_¶¶¶________¶¶________¶¶__¶¶¶¶¶¶¶<br>
+                            _______¶¶¶¶¶_¶¶________¶¶_____¶¶¶¶___¶¶¶¶¶<br>
+                            _______¶¶¶___¶¶_________¶¶___¶¶¶¶¶¶<br>
+                            _________¶¶¶¶¶__________¶¶___¶¶¶¶¶¶<br>
+                            _________________________¶¶__¶¶¶¶<br>
+                            _____________________¶¶¶¶¶¶<br>
+                            ____________________¶¶¶¶¶¶¶<br>
+                            ____________________¶¶¶¶¶¶
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>The Other Half Of Me</h3>
+                        <figure id = "other-half">
+                            <img  src = "{{ url_for('static', filename='media/top16/postpunkpodge.gif') }}" alt = "Other half's profile picture">
+                            <figcaption>
+                                <a href = "https://postpunkpodgeandthetechnohippies.bandcamp.com/" target = "_blank">
+                                    Post-Punk Podge & The Technohippes
+                                </a>
+                            </figcaption>
+                        </figure>
+
+                        <p>
+                            Love them they the besties!!1! (づ｡◕‿‿◕｡)づ XxXxX
+                        </p>
+                    </div>
+
+                </div>
+    
+                <div class = "about-col right">
+
+                    <div>
+                        <h3>Films</h3>
+                        <p>
+                            Sopranos!!!
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Sports</h3>
+                        <p>
+                            Love the football!!<br>
+                            ＼⚽＼(°‿°)
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h3>Genre</h3>
+                        <p>
+                            Rock
+                            Indie
+                            Alternative
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Label</h3>
+                        <p>
+                            Dollar Pickle Records &lpar;North kerry only&rpar;
+                            Scauldwave Records &lpar;rest of world&rpar;
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Quotes</h3>
+                        <p>
+                            <br>
+                            ;;;;;;;;.¸_______________¸;;;;;;;<br>
+                            ;;;;;;;;;;;:¸___________, :;;;;;;;;;¸<br>
+                            :;;;;;;;;;;;;__________, :;;;;;;;;;;;¸<br>
+                            _ :;;;;;;;;;;;, , _______, :;;;;;;;;;;;¸<br>
+                            ___:;;;;;;;;;;;;_______, ;;;;;;;;;;;;:<br>
+                            ____.•¸:;;;;;;;;;¸_____¸;;;;;;;;;;<br>
+                            _______•¸:;;;;;;¸_____¸;;;;;;;:´<br>
+                            ___________•¸:;;;;¸., .¸;;;;;;•<br>
+                            ______¸.•;;;;;;;;;;;;;;;;;;;;;;;<br>
+                            ____.´;;;;;´D;;;;;;;;;;;;;;;;;;;<br>
+                            ____;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<br>
+                            _____:;;;;;;;;;;;;;;;;;;;;;;;;;;<br>
+                            _______•.;;;;;;;;;;;;;;;;;;;;<br>
+                            __________.;;;;;;;;;;;;;;;;;.<br>
+                            ______(*•.¸ (*•.¸ ¸.•*´) ¸.•* )<br>
+                            <br>
+                            <br>
+                            _________________0<br>
+                            ________________00<br>
+                            _______________0000<br>
+                            ___0__________000000___________0<br>
+                            ___00_________000000___________0<br>
+                            ____0000______000000__________00<br>
+                            ____000000____0000000_____00000<br>
+                            0______0000000_000000_00000000___0<br>
+                            00______000000_00000_0000000____00<br>
+                            0000_____000000_000_000000____0000<br>
+                            _000000000__0000_0_000_0_000000000<br>
+                            ____000000000__0_0_0_00000000000<br>
+                            ________000000000000000000000<br>
+                            ______________000_0_0000<br>
+                            ____________00000_0__00000<br>
+                            __________00_______0_______00<br>
+                            ____________________0<br>
+                            <br>
+                            ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶<br>
+                            ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶<br>
+                            ¶¶¶¶¶¶¶1¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶§§§1§§¶¶<br>
+                            ¶¶¶¶¶¶_§¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶§1___1§§¶¶¶¶¶<br>
+                            ¶¶¶¶§__¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶§1______§¶¶¶¶¶¶¶¶¶¶<br>
+                            ¶¶¶§___¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶§§1_______1§¶¶¶¶¶¶¶¶¶¶¶¶¶¶<br>
+                            ¶¶¶____1¶¶¶¶¶¶¶¶¶¶§11_________1¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶<br>
+                            ¶¶_______11111____________§¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶<br>
+                            ¶¶____________________§¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶<br>
+                            ¶¶_______________1§¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶<br>
+                            ¶¶¶__________1§¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶<br>
+                            ¶¶¶¶¶¶§§§¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶<br>
+                            <br>
+                        </p>
+
+                    </div>
+
+                    <div>
+                        <h3>x__Some Things About Messyng FC You Might Want To Know ^.^</h3>
+                        <p>
+                            [[There Seeing Someone..*&#9825;]]<br>
+                            [[They Love Their Friends More Than Anything In The World]]<br>
+                            [[They Are Perfectionists]]<br>
+                            [They Will Kick Ur Ass]<br>
+                            [[They Are Very Easy To Get Along With]]<br>
+                            [[They Are The Most Ticklist People You Will Ever Meet]<br>
+                            <br>
+                            ▁ ▂ ▄ ▅ ▆ ▇ █ █ ▇ ▆ ▅ ▄ ▂ ▁<br>
+                            🎀 𝒞𝑒𝓁𝑒𝒷𝓇𝒶𝓉𝑒 𝓉𝒽𝑒 𝓈𝓊𝓂𝓂𝑒𝓇 𝒷𝒶𝒸𝓀 𝒾𝓃𝓉𝓸 𝓉𝒽𝑒 𝓈𝒸𝑒𝓃𝑒 💞<br>
+                            💙 𝒞𝑒𝓁𝑒𝒷𝓇𝒶𝓉𝑒 𝓉𝒽𝑒 𝒻𝑒𝑒𝓁𝒾𝓃𝑔, 𝓎𝓸𝓊 𝒶𝓃𝒹 𝓂𝑒 💍<br>
+                            💍 𝒯𝒶𝓀𝑒 𝓂𝑒 𝓉𝓸 𝓉𝒽𝑒 𝓸𝒸𝑒𝒶𝓃, 𝓁𝒾𝓋𝑒 𝒶 𝓁𝒾𝒻𝑒 𝓈𝓊𝓅𝓇𝑒𝓂𝑒 💙<br>
+                            💞 𝒯𝒶𝓀𝑒 𝓂𝑒 𝓉𝓸 𝓉𝒽𝑒 𝒽𝓸𝓉 𝓈𝓊𝓂𝓂𝑒𝓇 𝒹𝓇𝑒𝒶𝓂 🎀<br>
+                            ▁ ▂ ▄ ▅ ▆ ▇ █ █ ▇ ▆ ▅ ▄ ▂ ▁<br>
+                        </p>
+                    </div>
+
+                </div>
+
+            </article>
+        </section>
+        
+
+
+        <section id = "left">
+            <article id = "top16">
+                
+                <h2 class = "componentheading">Friends</h2>
+                <div class = "component">
+                    <h3>(top 16)</h3>
+                    <h4><a href = "{{ url_for('friends') }}">View all friends</a></h4>
+                    <div>
+
+                        <figure> <!-- 1 -->
+                            <a href = "https://youtu.be/wOECUdsCAEo" target = "_blank">
+                                <img src = "{{ url_for('static', filename='media/top16/acidgranny.gif') }}">
+                                <figcaption>Acid Granny</figcaption>
+                            </a>
+                        </figure>
+
+                        <figure>
+                            <a href = "https://youtu.be/AajYHruMin4" target = "_blank">
+                                <img src = "{{ url_for('static', filename='media/top16/postpunkpodge.gif') }}">
+                                <figcaption>Post Punk Podge</figcaption>
+                            </a>
+                        </figure>
+
+                        <figure>
+                            <a href = "https://youtu.be/Ky4DcZyVLt4" target = "_blank">
+                                <img src = "{{ url_for('static', filename='media/top16/icepop.gif') }}">
+                                <figcaption>Ice Pop</figcaption>
+                            </a>
+                        </figure>
+
+                        <figure>
+                            <a href = "____" target = "_blank">
+                                <img src = "{{ url_for('static', filename='media/top16/craicboi.gif') }}">
+                                <figcaption>Craic Boi Mental</figcaption>
+                            </a>
+                        </figure>
+                        
+                        <figure> <!-- 5 -->
+                            <a href = "https://youtu.be/hL0MKy0aTl8" target = "_blank">
+                                <img src = "{{ url_for('static', filename='media/top16/babynits.gif') }}">
+                                <figcaption>BABY NITS</figcaption>
+                            </a>
+                        </figure>
+
+                        <figure>
+                            <a href = "____" target = "_blank">
+                                <img src = "{{ url_for('static', filename='media/arrows/best_mates.png') }}">
+                                <figcaption>Best_mates_arrow</figcaption>
+                            </a>
+                        </figure>
+
+                        <figure>
+                            <a href = "____" target = "_blank">
+                                <img src = "{{ url_for('static', filename='') }}">
+                                <figcaption>Brands</figcaption>
+                            </a>
+                        </figure>
+
+                        <figure>
+                            <a href = "____" target = "_blank">
+                                <img src = "{{ url_for('static', filename='media/arrows/sex_on_legs.png') }}">
+                                <figcaption>Sex on Legs Arrows</figcaption>
+                            </a>
+                        </figure>
+
+                        <figure> <!-- 9 -->
+                            <a href = "____" target = "_blank">
+                                <img src = "{{ url_for('static', filename='media/arrows/cutie.png') }}">
+                                <figcaption>Cutie Arrow</figcaption>
+                            </a>
+                        </figure>
+
+                        <figure>
+                            <a href = "____" target = "_blank">
+                                <img src = "{{ url_for('static', filename='') }}">
+                                <figcaption>Brands</figcaption>
+                            </a>
+                        </figure>
+
+                        <figure>
+                            <a href = "____" target = "_blank">
+                                <img src = "{{ url_for('static', filename='') }}">
+                                <figcaption>Brands</figcaption>
+                            </a>
+                        </figure>
+
+                        <figure>
+                            <a href = "____" target = "_blank">
+                                <img src = "{{ url_for('static', filename='') }}">
+                                <figcaption>Brands</figcaption>
+                            </a>
+                        </figure>
+
+                        <figure> <!-- 13 -->
+                            <a href = "____" target = "_blank">
+                                <img src = "{{ url_for('static', filename='') }}">
+                                <figcaption>Brands</figcaption>
+                            </a>
+                        </figure>
+
+                        <figure>
+                            <a href = "____" target = "_blank">
+                                <img src = "{{ url_for('static', filename='media/arrows/besties.png') }}">
+                                <figcaption>Besties arrow</figcaption>
+                            </a>
+                        </figure>
+
+                        <figure>
+                            <a href = "____" target = "_blank">
+                                <img src = "{{ url_for('static', filename='media/arrows/legend.png') }}">
+                                <figcaption>Xx_Legend_Arrow_xX</figcaption>
+                            </a>
+                        </figure>
+
+                        <figure>
+                            <a href = "____" target = "_blank">
+                                <img src = "{{ url_for('static', filename='') }}">
+                                <figcaption>Brands</figcaption>
+                            </a>
+                        </figure>
+
+                    </div>
+                </div>
+            </article>
+
+
+
+            <article id = "flashbox">
+                <h2 class = "componentheading">Flashbox</h2>
+                
+                <div class = "component">
+                    <h4><a href = "{{ url_for('flashbox') }}">Add To My Profile</a></h4>
+
+                    <section id = "viewer">
+
+                        <div class = "mySlides fade">
+                            <p class = "numbertext">1 / 4</p>
+                            <video src = "{{ url_for('static', filename='media/flashbox/still_at_the_music.mp4') }}" controls>
+                                <source src = "movie.mp4" type = "video/mp4">
+                                <source src = "movie.ogg" type = "video/ogg">
+                                Your browser does not support the video tag.
+                            </video>
+                            <p class = "text">Still At The Music (feat. Post Punk Podge) - Music Video</p>
+                        </div>
+
+                        <div class = "mySlides fade">
+                            <p class = "numbertext">2 / 4</p>
+                            <video src = "{{ url_for('static', filename='media/flashbox/donkey_healy_rave.mp4') }}" controls>
+                                <source src = "movie.mp4" type = "video/mp4">
+                                <source src = "movie.ogg" type = "video/ogg">
+                                Your browser does not support the video tag.
+                            </video>
+                            <p class = "text">Donkey Healy Rave (feat. Post Punk Podge) - Music Video</p>
+                        </div>
+
+                        <div class = "mySlides fade">
+                            <p class = "numbertext">3 / 4</p>
+                            <video src = "{{ url_for('static', filename='media/flashbox/hernan_crespo.mp4') }}" controls>
+                                <source src = "movie.mp4" type = "video/mp4">
+                                <source src = "movie.ogg" type = "video/ogg">
+                                Your browser does not support the video tag.
+                            </video>
+                            <p class = "text">Hernan Crespo, How's Your Father? - Music Video</p>
+                        </div>
+
+                        <div class = "mySlides fade">
+                            <p class = "numbertext">4 / 4</p>
+                            <video src = "{{ url_for('static', filename='media/flashbox/bodies.mp4') }}" controls>
+                                <source src = "movie.mp4" type = "video/mp4">
+                                <source src = "movie.ogg" type = "video/ogg">
+                                Your browser does not support the video tag.
+                            </video>
+                            <p class = "text">Bodies - Music Video</p>
+                        </div>
+
+                        <!-- Chevrons from left and right -->
+                        <a class = "prev" onclick = "plusSlides(-1)">
+                            &#10094;
+                        </a>
+                        <a class = "next" onclick = "plusSlides(1)">
+                            &#10095;
+                        </a>
+
+                    </section>
+
+                    <div class = "dot-container">
+                        <span class = "dot" onclick = "currentSlide(1)"></span>
+                        <span class = "dot" onclick = "currentSlide(2)"></span>
+                        <span class = "dot" onclick = "currentSlide(3)"></span>
+                        <span class = "dot" onclick = "currentSlide(4)"></span>
+                    </div>
+
+                    <script> // Is there a way of moving this into slideshow.js, or into a generic scripts.js?
+                        // Want this stored in external js file
+                        var slideIndex = 1;
+                        showSlides(slideIndex);
+
+                        function plusSlides(n) {
+                            showSlides(slideIndex += n);
+                        }
+
+                        function currentSlide(n) {
+                            showSlides(slideIndex = n);
+                        }
+
+                        function showSlides(n) {
+                            var i;
+                            var slides = document.getElementsByClassName("mySlides");
+                            var dots = document.getElementsByClassName("dot");
+                            if (n > slides.length) { slideIndex = 1 }
+                            if (n < 1) { slideIndex = slides.length }
+                            for (i = 0; i < slides.length; i++) {
+                                slides[i].style.display = "none";
+                            }
+                            for (i = 0; i < dots.length; i++) {
+                                dots[i].className = dots[i].className.replace(" active", "");
+                            }
+                            slides[slideIndex - 1].style.display = "block";
+                            dots[slideIndex - 1].className += " active";
+                        }
+                    </script>
+            </article>
+
+
+
+            <article id = "photos">
+                <h2 class = "componentheading">Photos</h2>
+                <div class = "component">
+                    <h3>(Top 9))</h3>
+                    <h4><a href = "{{ url_for('photos') }}">View all</a></h4>
+                    <div>
+                        <figure> <!-- 1 -->
+                            <a>
+                                <img src = "{{ url_for('static', filename='media/top9/placeholder_friends_list.jpg') }}">
+                                <figcaption>Brands (<span>_</span> photos)</figcaption>
+                            </a>
+                        </figure>
+
+                        <figure>
+                            <a>
+                                <img src = "media/top9/placeholder_friends_list.jpg">
+                                <figcaption>Cyberpub2077 pics (<span>_</span> photos)</figcaption>
+                            </a>
+                        </figure>
+
+                        <figure>
+                            <a>
+                                <img src = "media/top9/placeholder_friends_list.jpg">
+                                <figcaption>Assorted gigs (<span>_</span> photos)</figcaption>
+                            </a>
+                        </figure>
+                        
+
+                        <figure> <!-- 4 -->
+                            <a>
+                                <img src = "media/top9/placeholder_friends_list.jpg">
+                                <figcaption>Belle & Sebastian are not real (<span>_</span> photos)</figcaption>
+                            </a>
+                        </figure>
+
+                        <figure>
+                            <a>
+                                <img src = "{{ url_for('static', filename='media/top9/election_posters_cover.png') }}">
+                                <figcaption>Election posters (<span>_</span> photos)</figcaption>
+                            </a>
+                        </figure>
+
+                        <figure>
+                            <a>
+                                <img src = "media/top9/placeholder_friends_list.jpg">
+                                <figcaption>Randommm x (<span>_</span> photos)</figcaption>
+                            </a>
+                        </figure>
+                        
+                        
+                        <figure> <!-- 7 -->
+                            <a>
+                                <img src = "media/top9/placeholder_friends_list.jpg">
+                                <figcaption>Merch (<span>_</span> photos)</figcaption>
+                            </a>
+                        </figure>
+
+                        <figure>
+                            <a>
+                                <img src = "media/top9/placeholder_friends_list.jpg">
+                                <figcaption>Selfiies & holz x (<span>_</span> photos)</figcaption>
+                            </a>
+                        </figure>
+
+                        <figure>
+                            <a>
+                                <img src = "media/top9/placeholder_friends_list.jpg">
+                                <figcaption>_______ (<span>_</span> photos)</figcaption>
+                            </a>
+                        </figure>
+
+                    </div>
+                </div>
+            </article>
+
+
+
+            <article id = "widget">
+                <h2>Widget</h2>
+                <div class = "component">
+                    <h4><a href = "{{ url_for('widget') }}">Add To My Profile</a></h4>
+
+                    <section id = "viewer">
+
+                        <div class = "mySlides fade">
+                            <p class = "numbertext">1 / 3</p>
+                            <model-viewer src = "{{ url_for('static', filename='media/3d_models/LJSF2k2_gameboy_advance_case.glb') }}"
+                                alt = "A 3D model of the GBA version of the album" auto-rotate camera-controls ar
+                                ar-modes = "webxr scene-viewer quick-look">
+                            </model-viewer>
+                            <p class = "text">Lisselton John Street Football 2k2 for the Gameboy Advance</p>
+                        </div>
+
+                        <div class = "mySlides fade">
+                            <p class = "numbertext">2 / 3</p>
+                            <model-viewer src = "{{ url_for('static', filename='media/3d_models/LJSF2k2_pc_dvd_case.glb') }}"
+                                alt = "A 3D model of the GBA version of the album" auto-rotate camera-controls ar
+                                ar-modes = "webxr scene-viewer quick-look">
+                            </model-viewer>
+                            <p class = "text">Lisselton John Street Football 2k2 for PC</p>
+                        </div>
+
+                        <div class = "mySlides fade">
+                            <p class = "numbertext">3 / 3</p>
+                            <model-viewer src = "{{ url_for('static', filename='media/3d_models/LJSF2k2_ps1_case.glb') }}"
+                                alt = "A 3D model of the GBA version of the album" auto-rotate camera-controls ar
+                                ar-modes = "webxr scene-viewer quick-look">
+                            </model-viewer>
+                            <p class = "text">Lisselton John Street Football 2k2 for the Playstation 1</p>
+                        </div>
+
+                        <!-- Chevrons from left and right -->
+                        <a class = "prev" onclick = "plusSlides(-1)">
+                            &#10094;
+                        </a>
+                        <a class = "next" onclick = "plusSlides(1)">
+                            &#10095;
+                        </a>
+
+                    </section>
+
+                    <div class = "dot-container">
+                        <span class = "dot" onclick = "currentSlide(1)"></span>
+                        <span class = "dot" onclick = "currentSlide(2)"></span>
+                        <span class = "dot" onclick = "currentSlide(3)"></span>
+                    </div>
+
+                    <script> // Is there a way of moving this into slideshow.js, or into a generic scripts.js?
+                        // Want this stored in external js file
+                        var slideIndex = 1;
+                        showSlides(slideIndex);
+
+                        function plusSlides(n) {
+                            showSlides(slideIndex += n);
+                        }
+
+                        function currentSlide(n) {
+                            showSlides(slideIndex = n);
+                        }
+
+                        function showSlides(n) {
+                            var i;
+                            var slides = document.getElementsByClassName("mySlides");
+                            var dots = document.getElementsByClassName("dot");
+                            if (n > slides.length) { slideIndex = 1 }
+                            if (n < 1) { slideIndex = slides.length }
+                            for (i = 0; i < slides.length; i++) {
+                                slides[i].style.display = "none";
+                            }
+                            for (i = 0; i < dots.length; i++) {
+                                dots[i].className = dots[i].className.replace(" active", "");
+                            }
+                            slides[slideIndex - 1].style.display = "block";
+                            dots[slideIndex - 1].className += " active";
+                        }
+                    </script>
+                </div>
+            </article>
+
+
+
+            <article id = "whiteboard">
+                <h2>White board</h2>
+                <div class = "component">
+                    <h4><a href = "{{ url_for('whiteboard') }}">View all</a></h4>
+                    <canvas>
+
+                    </canvas>
+                </div>
+            </article>
+
+
+
+            <article id = "solitayre">
+                <h2>Solitayre</h2>
+                <div class = "component">
+                    <h4><a href = "{{ url_for('solitayre') }}">Play on a seperate page</a></h4>
+                    <div id = "putgamehere">
+
+                    </div>
+
+                    <script> // Is there a way of moving this into solitaire.js, or into a generic scripts.js?
+                        window.onload = function () {
+                            if( !document.getElementById ) { return; } // To be nice to old browsers
+                                var game1 = new solitaireGame('solitaire1',document.getElementById('putgamehere'));
+                                game1.addImagePack('../static/games/cardsets/h36/',[['walk','Mountain walk'],['midnightsun','Midnight sun']],'.png',25,36,'Northern Norway');
+                                game1.addImagePack('../static/games/cardsets/h96/',[['bluepattern','Blue pattern'],['blue','Plain blue'],['x','Red X']],'.gif',71,96,'Once in a Lifetime');
+                                game1.addImagePack('../static/games/cardsets/h135/',[['mtv','MTV Messyng'],['mrbinbin','Mr Bin Bin']],'.png',90,135,'Messyng');
+                                game1.startGame();
+                        }
+                    </script>
+                </div>
+            </article>
+        </section>
+
+
+
+        <section id = "right">
+            <article id = "blog">
+                <h2>Blog</h2>
+                <div class = "component">
+                    <h4><a href = "{{ url_for('blog') }}">Read on a seperate page</a></h4>
+                    <ol>
+                        <li>Full Name:</li>
+                        <li>Nicknames:</li>
+                        <li>Birthday:</li>
+                        <li>Place of Birth:</li>
+                        <li>Zodiac Sign:</li>
+                        <li>Male or Female:</li>
+                        <li>Year at College:</li>
+                        <li>School:</li>
+                        <li>Occupation:</li>
+                        <li>Residence:</li>
+                        <li>MSN Screen Name:</li>
+
+                        <p>__Your Appearance___</p>
+                        <li>Hair Color:</li>
+                        <li>Hair Length:</li>
+                        <li>Eye color:</li>
+                        <li>Weight:</li>
+                        <li>Height:</li>
+                        <li>Braces?:</li>
+                        <li>Glasses?:</li>
+                        <li>Piercings:</li>
+                        <li>Tattoos:</li>
+                        <li>Righty or Lefty:</li>
+
+                        <p>___Your 'Firsts'___</p>
+                        <li>First best friend:</li>
+                        <li>First Award:</li>
+                        <li>First Sport You Joined:</li>
+                        <li>First pet:</li>
+                        <li>First Real Vacation:</li>
+                        <li>First Concert:</li>
+                        <li>First Love:</li>
+
+                        <p>___ Favorites___</p>
+                        <li>Movie:</li>
+                        <li>TV programme:</li>
+                        <li>Colour:</li>
+                        <li>Rapper:</li>
+                        <li>Band:</li>
+                        <li>Song Right Now:</li>
+                        <li>Friends:</li>
+                        <li>Sweet:</li>
+                        <li>Sport to Play:</li>
+                        <li>Restuarant:</li>
+                        <li>Brand:</li>
+                        <li>Store:</li>
+                        <li>School Subject:</li>
+                        <li>Animal:</li>
+                        <li>Book:</li>
+                        <li>Magazine:</li>
+                        <li>Shoes:</li>
+
+                        <p>___Currently___</p>
+                        <li>Feeling:</li>
+                        <li>Single or taken:</li>
+                        <li>Have a crush:</li>
+                        <li>Eating:</li>
+                        <li>Drinking:</li>
+                        <li>Typing:</li>
+                        <li>Online?:</li>
+                        <li>Listening To:</li>
+                        <li>Thinking About:</li>
+                        <li>Wanting To:</li>
+                        <li>Watching:</li>
+                        <li>Wearing:</li>
+                        
+                        <p>___Your Future___</p>
+                        <li>Want Kids?:</li>
+                        <li>Want to be Married?:</li>
+                        <li>Careers in Mind:</li>
+                        <li>Where do you want to live:</li>
+                        <li>Car:</li>
+                        
+                        <p>__Which is Better With The Opposite Sex___</p>
+                        <li>Hair color:</li>
+                        <li>Hair length:</li>
+                        <li>Eye color:</li>
+                        <li>Measurements:</li>
+                        <li>Cute or Sexy:</li>
+                        <li>eyes or lips:</li>
+                        <li>Hugs or Kisses:</li>
+                        <li>Short or Tall:</li>
+                        <li>Easygoing or serious:</li>
+                        <li>Romantic or Spontaneous:</li>
+                        <li>Fatty or Skinny:</li>
+                        <li>Sensitive or Loud:</li>
+                        <li>Hook-up or Relationship:</li>
+                        <li>Sweet or Caring:</li>
+                        <li>Trouble Maker or Hesitant one:</li>
+
+                        <p>___Have you ever______</p>
+                        <li>Kissed a Stranger:</li>
+                        <li>Had Alcohol:</li>
+                        <li>Smoked:</li>
+                        <li>Ran Away From Home:</li>
+                        <li>Broken a bone: .</li>
+                        <li>Got an X-ray:</li>
+                        <li>Been in a serious relationship:</li>
+                        <li>Broken Someones Heart:</li>
+                        <li>Broke Up With Someone:</li>
+                        <li>Cried When Someone Died:</li>
+                        <li>Cried At School:</li>
+                        
+                        <p>___Do You Believe In___</p>
+                        <li>God:</li>
+                        <li>Miracles:</li>
+                        <li>Love At First sight:</li>
+                        <li>Ghosts:</li>
+                        <li>Aliens:</li>
+                        <li>Soul Mates:</li>
+                        <li>Heaven:</li>
+                        <li>Hell:</li>
+                        <li>Angels: ..</li>
+                        <li>Kissing on The First Date:</li>
+                        <li>Horoscopes:</li>
+                        
+                        <p>___Answer Truthfully___</p>
+                        <li>Is There Someone You Want But You Know You Can't Have:</li>
+                    </ol>
+                </div>
+            </article>
+
+
+
+            <article id = "quiz">
+                <h2>Quiz</h2>
+                <div class = "component">
+                    <h4><a href = "{{ url_for('quiz') }}">Play on a seperate page</a></h4>
+                    <p>Who reallyknows me?? x</p>
+                </div>
+            </article>
+
+
+
+            <article id = "polls">
+                <h2>Polls</h2>
+                <div class = "component">
+                    <h4><a href = "{{ url_for('polls') }}">Play on a seperate page</a></h4>
+
+                    <form action = "/action_page.php">
+                        <h3>Which?? x</h3>
+                        
+                        <div>
+                            <input id = "nike" type = "radio" name = "fav_brand" value = "NIKE">
+                            <label for = "nike">Nike</label>
+                        </div>
+
+                        <div>
+                            <input id = "adidas" type = "radio" name = "fav_brand" value = "Adidas">
+                            <label for = "adidas">Adidas</label>
+                        </div>
+
+                        <div>
+                            <input id = "kappa" type = "radio" name = "fav_brand" value = "Kappa">
+                            <label for="kappa">Kappa</label>
+                        </div>
+
+                        <div>
+                            <input id = "reebok" type = "radio" name = "fav_brand" value = "Reebok">
+                            <label for = "reebok">Reebok</label>
+                        </div>
+
+                        <div>
+                            <input id = "lecoq" type = "radio" name = "fav_brand" value = "Le Coq Sportif">
+                            <label for = "lecoq">Le Coq Sportif</label>
+                        </div>
+                    </form>
+
+                    <form action = "/action_page.php">
+                        <h3>Who is the hottest Mary Waliper? x</h3>
+
+                        <div>
+                            <input id = "sean" type = "radio" name = "fav_walloper" value = "Shaun">
+                            <label for = "sean">Shaun</label>
+                        </div>
+
+                        <div>
+                            <input id = "andrew" type = "radio" name = "fav_walloper" value = "Andriw">
+                            <label for = "andrew">Andriw</label>
+                        </div>
+
+                        <div>
+                            <input id = "charles" type = "radio" name = "fav_walloper" value = "Charlezz">
+                            <label for = "charles">❤️❤️ Charlezz ❤️❤️</label>
+                        </div>
+
+                    </form>
+
+                </div>
+            </article>
+
+
+
+            <article id = "events">
+                <h2>Events</h2>
+                <div class = "component">
+                    <h4><a href = "{{ url_for('events') }}">View all</a></h4>
+                    <!-- When putting in an events calendar, use the <time datetime="2008-02-14 20:00">10:00</time> tag for SEO reasons -->
+
+                    <h3>When</h3>
+                    <time datetime = "2021-12-28 20:00">20:00 on the 28th of December</time>
+                    <h3>Where</h3>
+                    <p>You know where! be there!!!</p>
+                    <h3>Details</h3>
+                    <p>Be there or be square !</p>
+                </div>
+            </article>
+
+
+
+            <article id = "maryo">
+                <h2>Maryo</h2>
+                <div class = "component">
+                    <h4><a href = "{{ url_for('maryo') }}">Play on a seperate page</a></h4>
+                    <canvas id = "maryobox">
+                        <!-- div class="row">
+                            <div class="col-lg-12">
+                                <h1 style></h1>
+                            </div>
+                        </div -->
+                    </canvas>
+                </div>
+            </article>
+
+
+
+            <article id = "wall">
+                <h2>Wall</h2>
+                <div class = "component">
+
+                    <h4><a href = "{{ url_for('wall') }}">View all</a>&nbsp;&vert;&nbsp;<a href = "#wallcomments">post a comment</a></h4>
+                    <form action = "____________">
+                        <label for = "wallcomments">Write on their wall:</label>
+
+                        <textarea id = "wallcomments" name = "wallcomments" rows = "4" cols = "50" placeholder = "Leave Messyng FC Band a message on their wall...">
+                        
+                        </textarea>
+
+                        <input type = "submit" value = "Submit">
+                    </form>
+
+                    <section class = "comment-section" >
+
+                        <div class = "comment-block">
+                            <img class = "profilepicwall" src = "{{ url_for('static', filename='media/defaults/bebo-default-band-pic.gif') }}">
+                            <h5 class = "wall-display-name">Dale Ward</h5>
+                            <h5 class = "wall-user-name">&lt;madassfucker&gt;</h5>
+                            <p>
+                                ***TO<br>
+                                ***MAKE<br>
+                                ***YOUR<br>
+                                ***HOMEPAGE<br>
+                                ***VIEWS<br>
+                                ***GO<br>
+                                ***UP<br>
+                                ***BY<br>
+                                ***THOUSENDS!!<br>
+                                ***CHECK<br>
+                                ***OUT<br>
+                                ***MY<br>
+                                ***BLOG<br>
+                                ***THAT<br>
+                                ***EXPLAINS<br>
+                                ***EXACTLY<br>
+                                ***HOW<br>
+                                ***TO<br>
+                                ***USE<br>
+                                ***THIS<br>
+                                ***AMAZING<br>
+                                ***CHEAT!!!!!!!!!!<br>
+                                <br>
+                                <br>
+                                ***TO<br>
+                                ***MAKE<br>
+                                ***YOUR<br>
+                                ***HOMEPAGE<br>
+                                ***VIEWS<br>
+                                ***GO<br>
+                                ***UP<br>
+                                ***BY<br>
+                                ***THOUSENDS!!<br>
+                                ***CHECK<br>
+                                ***OUT<br>
+                                ***MY<br>
+                                ***BLOG<br>
+                                ***THAT<br>
+                                ***EXPLAINS<br>
+                                ***EXACTLY<br>
+                                ***HOW<br>
+                                ***TO<br>
+                                ***USE<br>
+                                ***THIS<br>
+                                ***AMAZING<br>
+                                ***CHEAT!!!!!!!!!!<br>
+                                <br>
+                                <br>
+                                ***TO<br>
+                                ***MAKE<br>
+                                ***YOUR<br>
+                                ***HOMEPAGE<br>
+                                ***VIEWS<br>
+                                ***GO<br>
+                                ***UP<br>
+                                ***BY<br>
+                                ***THOUSENDS!!<br>
+                                ***CHECK<br>
+                                ***OUT<br>
+                                ***MY<br>
+                                ***BLOG<br>
+                                ***THAT<br>
+                                ***EXPLAINS<br>
+                                ***EXACTLY<br>
+                                ***HOW<br>
+                                ***TO<br>
+                                ***USE<br>
+                                ***THIS<br>
+                                ***AMAZING<br>
+                                ***CHEAT!!!!!!!!!!
+                            </p>
+                            <p class = "age">1 week ago</p>
+                        </div>
+
+                        <div class = "comment-block">
+                            <img class = "profilepicwall" src = "{{ url_for('static', filename='media/defaults/bebo-default-profile-pic.gif') }}">
+                            <h5 class = "wall-display-name">Alex Daly</h5>
+                            <h5 class = "wall-user-name">&lt;CatTwat&gt;</h5>
+                            <p>
+                                your a shit cunt ars hole
+                            </p>
+                            <p class = "age">1 week ago</p>
+                        </div>
+
+                        <div class = "comment-block">
+                            <img class = "profilepicwall" src = "{{ url_for('static', filename='media/defaults/bebo-default-profile-pic.gif') }}">
+                            <h5 class = "wall-display-name">Zhivac New Village boi</h5>
+                            <h5 class = "wall-user-name">&lt;le0n1986&gt;</h5>
+                            <p>
+                                HI GUYSS<br>
+                                <br>
+                                CHECK OUT MY PAGE<br>
+                                <br>
+                                POST ME A COMMENT<br>
+                                <br>
+                                C HOW MUCH U NO ABOUT SEX<br>
+                                <br>
+                                DO MY POLL<br>
+                                <br>
+                                <br>
+                                ...DO MY 18+ QUIZ<br>
+                                ....DO MY 18+QUIZ<br>
+                                .....DO MY 18+QUIZ<br>
+                                ......DO MY 18+QUIZ<br>
+                                .......DO MY 18+QUIZ<br>
+                                ........DO MY 18+QUIZ<br>
+                                .........DO MY 18+QUIZ<br>
+                                ..........DO MY 18+QUIZ<br>
+                                ...........DO MY 18+QUIZ<br>
+                                ............DO MY 18+QUIZ<br>
+                                .............DO MY 18+QUIZ<br>
+                                ..............DO MY 18+QUIZ<br>
+                                ...............DO MY 18+QUIZ<br>
+                                ................DO MY 18+QUIZ<br>
+                                .................DO MY 18+QUIZ<br>
+                                ..................DO MY 18+QUIZ<br>
+                                ...................DO MY 18+QUIZ<br>
+                                ..................DO MY 18+QUIZ<br>
+                                .................DO MY 18+QUIZ<br>
+                                ................DO MY 18+QUIZ<br>
+                                ...............DO MY 18+QUIZ<br>
+                                ..............DO MY 18+QUIZ<br>
+                                .............DO MY 18+QUIZ<br>
+                                ............DO MY 18+QUIZ<br>
+                                ...........DO MY 18+QUIZ<br>
+                                ..........DO MY 18+QUIZ<br>
+                                .........DO MY 18+QUIZ<br>
+                                ......DO MY 18+QUIZ<br>
+                                .......DO MY 18+QUIZ<br>
+                                ......DO MY 18+QUIZ<br>
+                                .....DO MY 18+QUIZ<br>
+                                ....DO MY 18+QUIZ<br>
+                                ...DO MY 18+QUIZ<br>
+                                ..DO MY 18+QUIZ<br>
+                                .DO MY 18+QUIZ<br>
+                                4 weeks ago<br>
+                            </p>
+                            <p class = "age">2 week ago</p>
+                        </div>
+
+                        <div class = "comment-block">
+                            <img class = "profilepicwall" src = "{{ url_for('static', filename='media/defaults/bebo-default-profile-pic.gif') }}">
+                            <h5 class = "wall-display-name">Andrew Byrne</h5>
+                            <h5 class = "wall-user-name">&lt;AndrewByrner&gt;</h5>
+                            <p>
+                                THIS IS THE SHITEST BAND I'VE EVER SEEN!!!!!!!!!!!!!!!!!!!!!!!!!<br>
+                                !!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>
+                                !!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>
+                                !!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>
+                                !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                            </p>
+                            <p class = "age">1 month ago</p>
+                        </div>
+
+                    </section>
+
+                </div>
+            </article>
+        </section>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <section>
+        {% for friend in friendList %}
+            <figure>
+                <a href = "{{ friend['url'] }}" target = "_blank">
+                    <img src = "{{ friend['pfp'] }}" alt = "Profile picture for {{ friend['name'] }}">
+                    <!-- <img src = "{{ url_for('static', filename = ''+friend['pfp']) }}" alt = "Profile picture for {{ friend['name'] }}"> -->
+                    <figcaption>{{ friend["name"] }}</figcaption>
+                </a>
+            </figure>
+        {% endfor %}
+    </section>
+
+{% endblock %}

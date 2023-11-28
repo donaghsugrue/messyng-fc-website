@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <form action = "" method = "post" novalidate>
+        <caption>
+            <h1>Artist Login</h1>
+        </caption>
+        
+        {{ form.hidden_tag() }}
+
+        {{ form.userID.label }}
+        {{ form.userID() }}
+        {% for error in form.userID.errors %}
+            {{ error }}
+        {% endfor %}
+
+        <br>
+
+        {{ form.password.label }}
+        {{ form.password() }}
+        {% for error in form.password.errors %}
+            {{ error }}
+        {% endfor %}
+
+        <br>
+
+        {{ form.submit() }}
+    
+    </form>
+
+    <p>
+        {{ message }}
+    </p>
+
+{% endblock %}

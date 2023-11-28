@@ -1,0 +1,134 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// JavaScript Document
+var swfButtonIndex = 0;
+function getFlashMovieObject(movieName) {
+  if (window.document[movieName]) {
+    return window.document[movieName];
+  }
+	if (navigator.appName.indexOf("Microsoft Internet")==-1) {
+    if (document.embeds && document.embeds[movieName])
+      return document.embeds[movieName]; 
+  } else { // if (navigator.appName.indexOf("Microsoft Internet")!=-1)
+    return document.getElementById(movieName);
+  }
+}
+function getPlayer(vars,title) {
+	if (vars == "") {
+		var flashMovie=getFlashMovieObject("bebo_player");
+		vars=flashMovie.GetVariable("_root.vars");
+	}
+	function flashObject(win,type) {
+		if (type == "button") {
+			swfButtonIndex++;
+			idName = "bebo_player_button"+swfButtonIndex;
+			swfWidth = 20;
+			swfHeight = 20;
+			swfName = "/mp3_player_button";
+			vars = "songurl="+vars;
+		} else {
+			idName = "bebo_player";
+			swfWidth = 404;
+			swfHeight = 354;
+			swfName = "/mp3_player";
+		}
+		win.document.write('<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="https://web.archive.org/web/20061122235701/http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="'+swfWidth+'" height="'+swfHeight+'" id="'+idName+'" align="middle">');
+		win.document.write('<param name="allowScriptAccess" value="sameDomain" />');
+		win.document.write('<param name="FlashVars" value="'+vars+'" />');
+		win.document.write('<param name="movie" value="'+swfName+'.swf" />');
+		win.document.write('<param name="quality" value="high" />');
+		win.document.write('<param name="bgcolor" value="#000000" />');
+		win.document.write('<embed src="'+swfName+'.swf" quality="high" FlashVars="'+vars+'" bgcolor="#000000" width="'+swfWidth+'" height="'+swfHeight+'" name="'+idName+'" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="https://web.archive.org/web/20061122235701/http://www.macromedia.com/go/getflashplayer" />');
+		win.document.write('</object>');
+	}
+	if (title) {
+		winww = 404;
+		winhh = 354;
+	
+		LeftPosition=(screen.width)?(screen.width-winww)/2:100;
+		TopPosition=(screen.height)?(screen.height-winhh)/2:100;
+		
+		settings='width='+winww+',height='+winhh+',top='+TopPosition+',left='+LeftPosition+',scrollbars=no,location=no,directories=no,status=no,menubar=no,toolbar=no,resizable=no';
+		
+		win = open("",'bebo_player',settings);
+		win.document.write('<head>');
+		win.document.write('<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />');
+		win.document.write('<title>'+title+'</title>');
+		win.document.write('</head>');
+		win.document.write('<body bgcolor="#000000" leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0">');		
+		flashObject(win);
+		win.document.write('</body>');
+		win.document.write('</html>');
+		win.focus();
+	} else {
+		if (vars.substr(0,4).toLowerCase() == "http") {
+			flashObject(window,"button");
+		} else {
+			flashObject(window);
+		}
+	}
+}
+function playTrack(song) {
+	if (song) {
+		var i = 1;
+		while (getFlashMovieObject("bebo_player_button"+i)) {
+			var flashMovie=getFlashMovieObject("bebo_player_button"+i);
+			tmpVar=flashMovie.GetVariable("_root.haskey");
+			if (tmpVar != "play") {
+				tmpVar=flashMovie.GetVariable("_root.songurl");
+				if (song == tmpVar) {
+					flashMovie.SetVariable("_root.control", "play");
+					break;
+				}
+			}
+			i++;
+		}	
+	}
+}
+function stopTrack(song) {
+	var i = 1;
+	while (getFlashMovieObject("bebo_player_button"+i)) {
+		var flashMovie=getFlashMovieObject("bebo_player_button"+i);
+		tmpVar=flashMovie.GetVariable("_root.haskey");
+		if (tmpVar == "play") {
+			tmpVar=flashMovie.GetVariable("_root.songurl");
+			if (song != tmpVar) {
+				flashMovie.SetVariable("_root.control", "stop");
+			}
+		}
+		i++;
+	}	
+}
+
+}
+/*
+     FILE ARCHIVED ON 23:57:01 Nov 22, 2006 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:32:00 Oct 15, 2021.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 171.925
+  exclusion.robots: 0.215
+  exclusion.robots.policy: 0.197
+  RedisCDXSource: 2.63
+  esindex: 0.01
+  LoadShardBlock: 141.004 (3)
+  PetaboxLoader3.datanode: 80.8 (4)
+  CDXLines.iter: 24.539 (3)
+  load_resource: 90.493
+  PetaboxLoader3.resolve: 48.284
+*/

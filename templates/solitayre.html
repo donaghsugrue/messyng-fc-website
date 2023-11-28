@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <section>
+        <div id = "putgamehere">
+
+        </div>
+
+        <script> // Is there a way of moving this into solitaire.js, or into a generic scripts.js?
+            window.onload = function () {
+                if( !document.getElementById ) { return; } // To be nice to old browsers
+                    var game1 = new solitaireGame('solitaire1',document.getElementById('putgamehere'));
+                    game1.addImagePack('../static/games/cardsets/h36/',[['walk','Mountain walk'],['midnightsun','Midnight sun']],'.png',25,36,'Northern Norway');
+                    game1.addImagePack('../static/games/cardsets/h96/',[['bluepattern','Blue pattern'],['blue','Plain blue'],['x','Red X']],'.gif',71,96,'Once in a Lifetime');
+                    game1.addImagePack('../static/games/cardsets/h135/',[['mtv','MTV Messyng'],['mrbinbin','Mr Bin Bin']],'.png',90,135,'Messyng');
+                    game1.startGame();
+            }
+        </script>
+    </section>
+
+{% endblock %}

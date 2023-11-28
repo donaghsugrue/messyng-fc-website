@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <section>
+        
+        <h1>Contact Us</h1>
+
+        <p>
+            We're always happy to hear from our users with feedback, comments, requests, suggestions, or even just recommendations of music to check out!
+            Feel free to send us an email via the form below.
+        </p>
+
+        <form action = "" method = "post" novalidate>
+                
+            {{ form.hidden_tag() }}
+
+            {{ form.name.label }}
+            {{ form.name() }}
+            {% for error in form.name.errors %}
+                {{ error }}
+            {% endfor %}
+
+            <br>
+
+            {{ form.subject.label }}
+            {{ form.subject() }}
+            {% for error in form.subject.errors %}
+                {{ error }}
+            {% endfor %}
+
+            <br>
+
+            {{ form.email.label }}
+            {{ form.email() }}
+            {% for error in form.email.errors %}
+                {{ error }}
+            {% endfor %}
+
+            <br>
+
+            {{ form.message.label }}
+            {{ form.message() }}
+            {% for error in form.message.errors %}
+                {{ error }}
+            {% endfor %}
+
+            <br>
+
+            {{ form.submit() }}
+
+            {% if message %}
+                <p>
+                    {{ message }}
+                </p>
+            {% endif %}
+            
+        </form>
+
+    </section>
+
+{% endblock %}
