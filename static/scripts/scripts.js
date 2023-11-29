@@ -1,12 +1,14 @@
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 // Assorted shared variables and constants 
 
-var fs = require("fs");
-var data = readFileSync("basicStore.json");
-var basicStore = JSON.parse(data);
+// var fs = require("fs");
+// var data = readFileSync("basicStore.json");
+// var basicStore = JSON.parse(data);
 
 
-
+// document.addEventListener("DOMContentLoaded", function() {
+//     console.log(basicStore);
+// });
 
 const valuesToUpdate = {
     luvCount: 0, // JSOn store
@@ -96,9 +98,9 @@ document.addEventListener("DOMContentLoaded", function() {
 document.addEventListener("DOMContentLoaded", function() {
 
     // if luvCount exists in the JSON file, then just add the value to the html
-    if (basicStore.luvCount) {
+    if (localStorage.luvCount) {
         
-        document.getElementById("luv-counter").innerHTML = basicStore.luvCount + " ❤️";
+        document.getElementById("luv-counter").innerHTML = localStorage.luvCount + " ❤️";
     
     // if luvCount doesn't exist, then create it, set it to 1, and add it to the html.
     // While we're at it, we'll check if luvLimit exists in local storage and if not we'll create it and set it to 5.
@@ -109,12 +111,11 @@ document.addEventListener("DOMContentLoaded", function() {
             localStorage.luvLimit = 5;
 
         }
-        
-        fs.writeFile("basicStore.json", JSON.stringify(luvCount[1]), finished);
+
         console.log("luv count added to JSON file");
         localStorage.luvCount = 1;
 
-        document.getElementById("luv-counter").innerHTML = basicStore.luvCount + " ❤️";
+        document.getElementById("luv-counter").innerHTML = localStorage.luvCount + " ❤️";
 
     }
 
@@ -473,6 +474,136 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-function finished(err) {
-    console.log("JSON saved successfully");
+
+
+
+
+
+
+
+
+
+
+// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+// Flashbox Slideshow
+// Create a slideshow of videos for the flashbox
+
+// Create param
+var videoIndex;
+
+// Function to change to the next or previous video by pressing the left or right chevrons
+function nextVideo(n) {
+    showVideo(videoIndex += n);
+}
+
+// Function to change to the any video by pressing the preview images
+function selectVideo(n) {
+    showVideo(videoIndex = n);
+}
+
+// Function to determine which video to show
+function showVideo(n) {
+
+    // just for the for loop
+    var i;
+    
+    // Get all the videos as an array based on class name "myVideos"
+    var videos = document.getElementsByClassName("myVideos");
+
+    // Get all the thumbnails as an array based on class name "thumbnail"
+    var thumbnails = document.getElementsByClassName("thumbnail");
+
+    // if n is greater than the number of slides, then reset n back to 1 (or to the start of the carousel)
+    if (n > videos.length) {
+        videoIndex = 1
+    };
+
+    // if n is less than 1, then reset n back to the last slide (or to the end of the carousel)
+    if (n < 1) {
+        videoIndex = videos.length
+    };
+
+    // Hide all the videos
+    for (i = 0; i < videos.length; i++) {
+        videos[i].style.display = "none";
+    };
+
+    // Remove the active class from all the thumbnails
+    for (i = 0; i < thumbnails.length; i++) {
+        thumbnails[i].className = thumbnails[i].className.replace(" active", "");
+    };
+
+    // Use the index to determine which video to show and give it display block
+    videos[videoIndex - 1].style.display = "block";
+
+    // Use the index to determine which thumbnail to give the active class to
+    thumbnails[videoIndex - 1].className += " active";
+
+    // testing 
+    console.log("video index", videoIndex);
+}
+
+
+
+
+
+
+// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+// 3D render Slideshow
+// Create a slideshow of the 3D renders for the widget
+
+// Always start on render #1 by default
+var renderIndex = 1;
+
+// Function to change to the next or previous render by pressing the left or right chevrons
+function nextRender(n) {
+    showRender(renderIndex += n);
+}
+
+// Function to change to the any render by pressing the dot
+function selectRender(n) {
+    showRender(renderIndex = n);
+}
+
+// Function to determine which render to show
+function showRender(n) {
+
+    // just for the for loop
+    var j;
+    
+    // Get all the 3D renders as an array based on class name "myRenders"
+    var renders = document.getElementsByClassName("myRenders");
+
+    // Get all the dots as an array based on class name "dot"
+    var dots = document.getElementsByClassName("dot");
+
+    // if n is greater than the number of slides, then reset n back to 1 (or to the start of the carousel)
+    if (n > renders.length) {
+        renderIndex = 1
+    }
+
+    // if n is less than 1, then reset n back to the last slide (or to the end of the carousel)
+    if (n < 1) {
+        renderIndex = renders.length
+    }
+
+    // Hide all the 3D renders by default
+    for (j = 0; j < renders.length; j++) {
+        renders[j].style.display = "none";
+    }
+
+    // Remove the active class from all the dots
+    for (j = 0; j < dots.length; j++) {
+        dots[j].className = dots[j].className.replace(" active", "");
+    }
+
+    // Use the index to determine which 3D render to show and give it display block
+    // // // // // // // // // // NOT DEFINED ON CONTENT LOADED BUT IS DEFINED WHEN BUTTON IS FIRST PUSHED
+    renders[renderIndex - 1].style.display = "block";
+
+    // Use the index to determine which dot to give the active class to
+    dots[renderIndex - 1].className += " active";
+
+    // testing 
+    console.log("render index", renderIndex);
 }

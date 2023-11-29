@@ -19,6 +19,21 @@
 
 
 
+/* ========== TEMP ========== */
+.broken .component::after {
+  content: "Broken rn, please ignore";
+  z-index: 9000;
+  position: absolute;
+  color: yellow;
+  font-weight: bold;
+  left: calc(50% - (462px / 2));
+  top: calc(50% - (46px/2));
+  transform: rotate(340deg);
+  font-size: 40px;
+}
+
+
+
 
 /* ========== ANIMATIONS ========== */
 @-webkit-keyframes fade {
@@ -538,6 +553,7 @@ header button { /* "search" button */
 /* --- Container for the about section columns */
 #page-content #about > * {
   max-width: 500px;
+  box-sizing: border-box;
 }
 
 #about { /* Container for the 3 about columns */
@@ -635,7 +651,7 @@ header button { /* "search" button */
   flex-direction: column;
   align-self: stretch; /* if either the left of right is shorter than the other, this will stretch the container so that the widgets lock to the top */
 
-  max-width: 49%;
+  max-width: calc(50% - 8px);
   flex-grow: 1;
   gap: 16px;
 }
@@ -689,6 +705,16 @@ article h4 a { /* - A lot of these h4's are also links so want to over ride thin
   color: var(--light-color, #FFFFFF);
   text-decoration: none;
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -863,6 +889,122 @@ article h4 a { /* - A lot of these h4's are also links so want to over ride thin
   margin-inline: auto;
 }
 
+/* there's multiple content carousels and I want the styling of all of them to be the same */
+
+.slideshow-container {
+  /* I don't think I'll use */
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+
+/* - Each video in the flashbox carousel - */
+.myVideos {
+  /* .myslides is the class given to the contents of the carousel. The CSS keeps them hidden, the JS gives them the inline block style to display them. */
+  display: none;
+}
+
+
+/* - Left & right chevrons - */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  user-select: none; /* Makes the chevrons not selectable or highlightable */
+
+  color: var(--light-color, #FFFFFF);
+  background-color: transparent;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  border-radius: 5px;
+  margin-top: -22px;
+  
+  transition: var(--transition, all 0.5s ease-in-out);
+}
+
+.next {
+  right: 0;
+}
+
+.prev:hover,
+.next:hover {
+  color: var(--dark-color, #000000);
+  background-color: var(--light-color, #FFFFFF);
+}
+
+/* - Video title at bottom of video - */
+.text { /* Maybe animate to hide after a few seconds and show again on hover? */
+  position: absolute;
+
+  color: var(--light-color, #FFFFFF);
+  
+  font-size: 15px;
+  text-align: center;
+
+  bottom: 8px;
+  width: 100%;
+  padding-block: 8px;
+  padding-inline: 12px;
+}
+
+.numbertext { /* The "1 / n" number in the top left corner */
+  position: absolute;
+
+  color: var(--light-color, #FFFFFF);
+
+  font-size: 12px;
+
+  top: 0;
+  padding-inline: 16px;
+}
+
+/* - Dots at the bottom to show which option is selected - */
+.thumbnailContainer { /* I plan on replacing these dots with video thumbnails, so retitling the container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center; /* Extracted from inline cause I want it all controlled by CSS */
+
+  gap: 32px;
+}
+
+/* - Each individual thumbnail container - */
+.thumbnail {
+  display: inline-block;
+  cursor: pointer;
+
+  background-color: #bbb;
+
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  
+  transition: var(--transition, all 0.5s ease-in-out);
+}
+
+/* - Active dot or hovered dot - */
+.active,
+.thumbnail:hover {
+  background-color: #717171;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* --- Photos - top 9 --- */
@@ -907,6 +1049,8 @@ article h4 a { /* - A lot of these h4's are also links so want to over ride thin
 }
 
 
+
+
 /* --- Widget - Model viewer --- */
 #widget {
 
@@ -930,6 +1074,101 @@ model-viewer {
   width: 100%;
   height: auto;
   aspect-ratio: 16 / 9;
+}
+
+/* - Each 3D render in the widget carousel - */
+.myRenders {
+  display: none;
+}
+
+
+/* - Left & right chevrons - */
+#widget .prev,
+#widget .next {
+  cursor: pointer;
+  position: absolute;
+  user-select: none; /* Makes the chevrons not selectable or highlightable */
+
+  color: var(--light-color, #FFFFFF);
+  background-color: transparent;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  border-radius: 5px;
+  margin-top: -22px;
+  
+  transition: var(--transition, all 0.5s ease-in-out);
+}
+
+#widget .next {
+  right: 0;
+}
+
+#widget .prev:hover,
+#widget .next:hover {
+  color: var(--dark-color, #000000);
+  background-color: var(--light-color, #FFFFFF);
+}
+
+/* - Render title at bottom of video - */
+#widget .text { /* Maybe animate to hide after a few seconds and show again on hover? */
+  position: absolute;
+
+  color: var(--light-color, #FFFFFF);
+  
+  font-size: 15px;
+  text-align: center;
+
+  bottom: 8px;
+  width: 100%;
+  padding-block: 8px;
+  padding-inline: 12px;
+}
+
+#widget .numbertext { /* The "1 / n" number in the top left corner */
+  position: absolute;
+
+  color: var(--light-color, #FFFFFF);
+
+  font-size: 12px;
+
+  top: 0;
+  padding-inline: 16px;
+}
+
+/* - Dots at the bottom to show which option is selected - */
+.dot-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center; /* Extracted from inline cause I want it all controlled by CSS */
+
+  gap: 32px;
+}
+
+/* - Each individual dot - */
+.dot {
+  display: inline-block;
+  cursor: pointer;
+
+  background-color: #bbb;
+
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  
+  transition: var(--transition, all 0.5s ease-in-out);
+}
+
+/* - Active dot or hovered dot - */
+#widget .active,
+.dot:hover {
+  background-color: #717171;
 }
 
 
@@ -1442,7 +1681,51 @@ footer small a:hover {
 
 /* ========== MEDIA QUERIES ========== */
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 999px) {
+
+  header {
+    justify-content: center;
+  }
+
+  header nav {
+    display: none;
+  }
+
+  #page-content {
+    flex-direction: column;
+  }
+
+  #page-content #left,
+  #page-content #right {
+    max-width: 100%;
+  }
+
+  #about {
+    flex-direction: column;
+  }
+
+  #about-container .mainnav {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  #page-content #about > * {
+    max-width: 100%;
+    width: 100%;
+    text-align: center;
+  }
+
+  #about figure {
+    margin-inline: auto;
+  }
+
+  #about figcaption {
+    text-align: center;
+  }
+
+
+
+
   /* If below screen size, then the header navigation should show as a normal list leaning right */
   .headernav {
     display: block;
