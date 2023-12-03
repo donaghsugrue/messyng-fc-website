@@ -19,21 +19,6 @@
 
 
 
-/* ========== TEMP ========== */
-.broken .component::after {
-  content: "Broken rn, please ignore";
-  z-index: 9000;
-  position: absolute;
-  color: yellow;
-  font-weight: bold;
-  left: calc(50% - (462px / 2));
-  top: calc(50% - (46px/2));
-  transform: rotate(340deg);
-  font-size: 40px;
-}
-
-
-
 
 /* ========== ANIMATIONS ========== */
 @-webkit-keyframes fade {
@@ -59,19 +44,23 @@
 
 
 /* ========== VARIABLES ========== */
-:root {
-  --messyng-green: #00FF4F;
-  --messyng-pink: #FF00EE;
-  --dark-color: #000000;
-  --light-color: #FFFFFF;
+@media all {
 
-  --skin-component-head: url("media/skins/section_cover_nav_bar.png");
-  --skin-about-head: url("media/skins/page_cover_nav_bar.png");
-  --skin-about-bground: url("media/skins/bebo_cover_photo.png");
+  :root {
+    --messyng-green: #00FF4F;
+    --messyng-pink: #FF00EE;
+    --dark-color: #000000;
+    --light-color: #FFFFFF;
 
-  /* --cursor: url("media/cursor/main.png"), auto; */
+    --skin-component-head: url("media/skins/section_cover_nav_bar.png");
+    --skin-about-head: url("media/skins/page_cover_nav_bar.png");
+    --skin-about-bground: url("media/skins/bebo_cover_photo.png");
 
-  --transition: all 0.5s ease-in-out;
+    --cursor: url("media/cursor/main.png"), auto;
+
+    --transition: all 0.5s ease-in-out;
+  }
+
 }
 
 
@@ -79,319 +68,316 @@
 
 
 /* ========== STRUCTURE ========== */
-* {
-  font-family: Arial, Helvetica, sans-serif;
+@media all {
+
+  * {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  /* html, */
+
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    scroll-behavior: smooth;
+
+    font-size: 12px;
+
+    min-height: 100vh;
+    gap: 30px;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* --- Scrollbar customisation --- */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--messyng-pink, #FF00EE);
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--messyng-green, #00FF4F);
+  }
+
+  /* --- selection customisation --- */
+  ::selection {
+    background: var(--messyng-pink, #FF00EE);
+    color: var(--messyng-green, #00FF4F);
+  }
+
+  /* --- Focus for tab navigation --- */
+  *:focus {
+    outline: 1px solid var(--messyng-green, #00FF4F);
+  }
+
 }
 
-/* html, */
-
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  scroll-behavior: smooth;
-
-  font-size: 12px;
-
-  min-height: 100vh;
-  gap: 30px;
-  padding: 0;
-  margin: 0;
-}
-
-
-
-/* --- Scrollbar customisation --- */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--messyng-pink, #FF00EE);
-}
-
-::-webkit-scrollbar-track {
-  background: var(--messyng-green, #00FF4F);
-}
-
-
-
-/* --- selection customisation --- */
-::selection {
-  background: var(--messyng-pink, #FF00EE);
-  color: var(--messyng-green, #00FF4F);
-}
-
-/* --- Focus for tab navigation --- */
-*:focus {
-  outline: 1px solid var(--messyng-green, #00FF4F);
-}
 
 
 
 
 /* ========== GENERIC TAGS ========== */
+@media all {
 
-a {
-  cursor: var(--cursor, pointer), auto;
+  a {
+    cursor: var(--cursor, pointer), auto;
+  }
+
+  button:hover {
+    cursor: var(--cursor, pointer), auto;
+  }
+
+  canvas {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 1px solid silver;
+    margin-top: 16px;
+  }
+
+  figure {
+    margin: 0px;
+  }
+
+  figcaption {
+    text-align: center;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  img {
+    font-style: italic; /* Sets the alt text to italitcs to differentiate it on the page */
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+
+    width: 90%;
+    max-width: 1550px;
+    gap: 16px;
+    margin-inline: auto;
+  }
+
+  noscript {
+    font-style: italic; /* Sets the noscript text to italitcs to differentiate it on the page */
+  }
+
+  p {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  section {
+    break-inside: avoid;
+    width: 100%;
+  }
+
+  small {
+    font-size: 0.5em;
+  }
+
 }
-
-button:hover {
-  cursor: var(--cursor, pointer), auto;
-}
-
-canvas {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border: 1px solid silver;
-  margin-top: 16px;
-}
-
-figure {
-  margin: 0px;
-}
-
-figcaption {
-  text-align: center;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 0px;
-  padding: 0px;
-}
-
-img {
-  font-style: italic; /* Sets the alt text to italitcs to differentiate it on the page */
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-
-  width: 90%;
-  max-width: 1550px;
-  gap: 16px;
-  margin-inline: auto;
-}
-
-noscript {
-  font-style: italic; /* Sets the noscript text to italitcs to differentiate it on the page */
-}
-
-p {
-  margin: 0px;
-  padding: 0px;
-}
-
-section {
-  break-inside: avoid;
-  width: 100%;
-}
-
-small {
-  font-size: 0.5em;
-}
-
-
-
-
-
-
-
-
-
 
 
 
 
 
 /* ========== HEADER ========== */
+@media all {
+  /* --- General header bar stuff --- */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    overflow: visible;
 
-/* --- General header bar stuff --- */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
-  overflow: visible;
+    background-color: var(--dark-color, #000000);
+    background-size: cover;
+    color: var(--light-color, #FFFFFF);
+    
+    width: 100%;
+    height: auto;
+    padding-block: 5px;
+    padding-inline: 10px;
+  }
 
-  background-color: var(--dark-color, #000000);
-  background-size: cover;
-  color: var(--light-color, #FFFFFF);
-  
-  width: 100%;
-  height: auto;
-  padding-block: 5px;
-  padding-inline: 10px;
-}
+  header a { /* I definitely don't want any header links having an underline, so let's remove that from all of them here */
+    text-decoration: none;
+  }
 
-header a { /* I definitely don't want any header links having an underline, so let's remove that from all of them here */
-  text-decoration: none;
-}
-
-header a:hover {
-  cursor: pointer;
-}
-
-
-
-/* --- Header logo --- */
-#header-logo {
-  display: block;
-
-  width: 120px;
-  height: auto;
-
-  transition: var(--transition, all 0.5s ease-in-out);
-}
-
-#header-logo:hover {
-  filter: grayscale(30%);
-}
+  header a:hover {
+    cursor: pointer;
+  }
 
 
 
-/* --- Navigation menu within the header --- */
-header nav { /* Outermost navigation menu container. No styling requirements rn. */
+  /* --- Header logo --- */
+  header #header-logo {
+    display: block;
 
-}
+    width: 120px;
+    height: auto;
 
-header ul { /* Main nav menu container */
-  display: flex;
-  justify-content: space-between;
+    transition: var(--transition, all 0.5s ease-in-out);
+  }
 
-  gap: 8px; /* fatfingers support */
-  padding: 0px; /* Weird default to over ride */
-}
-
-header li {
-  display: flex;
-  align-items: center;
-  
-  list-style: none;
-
-  gap: 8px;
-
-  transition: var(--transition, all 0.5s ease-in-out);
-}
-
-header li a {
-  box-sizing: border-box;
-
-  background-color: transparent;
-  color: var(--messyng-pink, #FF00EE);
-
-  text-decoration: none;
-  text-align: center;
-
-  padding: 16px;
-  border-radius: 8px;
-
-  transition: var(--transition, all 0.5s ease-in-out);
-}
-
-header li a:hover {
-  background-color: var(--light-color, #FFFFFF);
-  color: var(--dark-color, #000000);
-}
+  header #header-logo:hover {
+    filter: grayscale(30%);
+  }
 
 
 
-/* --- "explore" dropdown --- */
-header .dropdown { /* Container */
-  position: relative;
-  display: inline-block;
+  /* --- Navigation menu within the header --- */
+  header nav { /* Outermost navigation menu container. No styling requirements rn. */
 
-  color: var(--messyng-pink, #FF00EE);
+  }
 
-  /* Only want top radius so that it connects seamlessly with box below */
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
+  header ul { /* Main nav menu container */
+    display: flex;
+    justify-content: space-between;
 
-header .dropbtn { /* The "explore" button itself. treated the same as a within li. */
-  box-sizing: border-box;
+    gap: 8px; /* fatfingers support */
+    padding: 0px; /* Weird default to over ride */
+  }
 
-  background-color: transparent;
+  header li {
+    display: flex;
+    align-items: center;
+    
+    list-style: none;
 
-  text-decoration: none;
-  text-align: center;
+    gap: 8px;
 
-  padding: 16px;
+    transition: var(--transition, all 0.5s ease-in-out);
+  }
 
-  transition: var(--transition, all 0.5s ease-in-out);
-}
+  header li a {
+    box-sizing: border-box;
 
-/* if the button of the word "explore" is hovered, style the explore button */
-/* if the content contained within the explore dropdown is hovered, maintain the style on the explore button */
-header .dropdown:hover {
-  background-color: var(--light-color, #FFFFFF);
-  color: var(--dark-color, #000000);
-}
+    background-color: transparent;
+    color: var(--messyng-pink, #FF00EE);
 
-header .dropdown .dropdown-content { /* The container for the list of links contained in the dropdown */
-  position: absolute;
-  visibility: hidden;
-  
-  color: var(--dark-color, #000000);
-  background-color: var(--light-color);
+    text-decoration: none;
+    text-align: center;
 
-  opacity: 0;
-  z-index: 2;
+    padding: 16px;
+    border-radius: 8px;
 
-  transition: var(--transition, all 0.5s ease-in-out);
-}
+    transition: var(--transition, all 0.5s ease-in-out);
+  }
 
-header .dropdown:hover .dropdown-content, /* if the dropdown li is hover, do this to the content */
-header .dropdown:active .dropdown-content, /* if the dropdown li is active, do this to the content */
-header .dropdown .dropdown-content:hover { /* if the dropdown-content div is hovered but not the dropdown li, do this to the content */
-  visibility: visible;
-  opacity: 1;
-}
-
-header .dropdown-content a { /* Each anchor tag is an entry in the drop down list, this is styling for those individual entries */
-  display: block;
-  box-sizing: border-box;
-
-  text-decoration: none;
-
-  padding: 16px;
-  border-radius: 0px;
-
-  transition: var(--transition, all 0.5s ease-in-out);
-}
-
-header .dropdown-content a:hover {
-  background-color: #F1F1F1;
-  color: var(--dark-color, #000000);
-}
+  header li a:hover {
+    background-color: var(--light-color, #FFFFFF);
+    color: var(--dark-color, #000000);
+  }
 
 
 
-/* --- search input and button --- */
-header input { /* search text area */
-  line-height: 16px;
+  /* --- "explore" dropdown --- */
+  header .dropdown { /* Container */
+    position: relative;
+    display: inline-block;
 
-  max-width: 300px;
-  padding: 5px;
-  border: 1px solid #CCCCCC;
-  border-radius: 8px;
-  margin: 0px;
-}
+    color: var(--messyng-pink, #FF00EE);
 
-header button { /* "search" button */
-  box-sizing: border-box;
+    /* Only want top radius so that it connects seamlessly with box below */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
 
-  line-height: 16px;
+  header .dropbtn { /* The "explore" button itself. treated the same as a within li. */
+    box-sizing: border-box;
 
-  padding: 5px;
-  border: 1px solid #CCCCCC;
-  border-radius: 8px;
-  margin: 0px;
+    background-color: transparent;
 
-  transition: var(--transition, all 0.5s ease-in-out);
+    text-decoration: none;
+    text-align: center;
+
+    padding: 16px;
+
+    transition: var(--transition, all 0.5s ease-in-out);
+  }
+
+  /* if the button of the word "explore" is hovered, style the explore button */
+  /* if the content contained within the explore dropdown is hovered, maintain the style on the explore button */
+  header .dropdown:hover {
+    background-color: var(--light-color, #FFFFFF);
+    color: var(--dark-color, #000000);
+  }
+
+  header .dropdown .dropdown-content { /* The container for the list of links contained in the dropdown */
+    position: absolute;
+    visibility: hidden;
+    
+    color: var(--dark-color, #000000);
+    background-color: var(--light-color);
+
+    opacity: 0;
+    z-index: 2;
+
+    transition: var(--transition, all 0.5s ease-in-out);
+  }
+
+  header .dropdown:hover .dropdown-content, /* if the dropdown li is hover, do this to the content */
+  header .dropdown:active .dropdown-content, /* if the dropdown li is active, do this to the content */
+  header .dropdown .dropdown-content:hover { /* if the dropdown-content div is hovered but not the dropdown li, do this to the content */
+    visibility: visible;
+    opacity: 1;
+  }
+
+  header .dropdown-content a { /* Each anchor tag is an entry in the drop down list, this is styling for those individual entries */
+    display: block;
+    box-sizing: border-box;
+
+    text-decoration: none;
+
+    padding: 16px;
+    border-radius: 0px;
+
+    transition: var(--transition, all 0.5s ease-in-out);
+  }
+
+  header .dropdown-content a:hover {
+    background-color: #F1F1F1;
+    color: var(--dark-color, #000000);
+  }
+
+
+
+  /* --- search input and button --- */
+  header input { /* search text area */
+    line-height: 16px;
+
+    max-width: 300px;
+    padding: 5px;
+    border: 1px solid #CCCCCC;
+    border-radius: 8px;
+    margin: 0px;
+  }
+
+  header button { /* "search" button */
+    box-sizing: border-box;
+
+    line-height: 16px;
+
+    padding: 5px;
+    border: 1px solid #CCCCCC;
+    border-radius: 8px;
+    margin: 0px;
+
+    transition: var(--transition, all 0.5s ease-in-out);
+  }
+
 }
 
 
@@ -399,104 +385,105 @@ header button { /* "search" button */
 
 
 /* ========== SUBHEADER ========== */
+@media all {
+  
+  #sub-header {
+    display: flex;
+    flex-direction: column;
 
-#sub-header {
-  display: flex;
-  flex-direction: column;
+    gap: 16px;
+  }
 
-  gap: 16px;
+
+
+  /* --- noscript error --- */
+  #sub-header noscript {
+    font-style: italic;
+    text-align: center;
+  }
+
+
+
+  /* --- Advert --- */
+  #sub-header #advert { /* figure container of advert img, figcaption etc */
+    width: 100%; /* occupy full width of main */
+  }
+
+  #sub-header #advert a {
+    display: block;
+
+    height: 100%;
+    width: 100%;
+    outline: 2px solid var(--dark-color, #000000); /* using outline so that I can inset it and hide it behind the img to only appear if the image is a broken link */
+    outline-offset: -2px;
+  }
+
+  #sub-header #advert img {
+    display: block;
+    position: relative;
+
+    width: 100%; /* take up full width of #advert */
+    height: auto;
+    max-height: 300px; /* Don't want this container being massive if there is an error */
+    z-index: 1;
+  }
+
+  #sub-header #advert figcaption {
+    opacity: 0.5;
+    font-style: italic;
+  }
+
+
+
+
+  /* --- Profile title and quote --- */
+  #sub-header #pageidentifier {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #sub-header #pageidentifier aside { /* Page title container */
+    display: flex;
+    align-self: flex-end; /* Lock to bottom of container */
+  }
+
+  #sub-header aside h1 { /* Display name */
+    font-family: Georgia;
+    font-size: 20px;
+  }
+
+  #sub-header aside h2 { /* Username */
+    font-size: 18px;
+  }
+
+  #sub-header #pageidentifier q { /* Page quote */
+    font-family: Georgia;
+    color: silver;
+    align-self: flex-start; /* Lock to top of container */
+  }
+
 }
-
-/* --- noscript error --- */
-#sub-header noscript {
-  font-style: italic;
-  text-align: center;
-}
-
-/* --- Advert --- */
-#sub-header #advert { /* figure container of advert img, figcaption etc */
-  width: 100%; /* occupy full width of main */
-}
-
-#sub-header #advert a {
-  display: block;
-
-  height: 100%;
-  width: 100%;
-  outline: 2px solid var(--dark-color, #000000); /* using outline so that I can inset it and hide it behind the img to only appear if the image is a broken link */
-  outline-offset: -2px;
-}
-
-#sub-header #advert img {
-  display: block;
-  position: relative;
-
-  width: 100%; /* take up full width of #advert */
-  height: auto;
-  z-index: 1;
-}
-
-#sub-header #advert figcaption {
-  opacity: 0.5;
-  font-style: italic;
-}
-
-
-
-
-/* --- Profile title and quote --- */
-#sub-header #pageidentifier {
-  display: flex;
-  justify-content: space-between;
-}
-
-#sub-header #pageidentifier aside { /* Page title container */
-  display: flex;
-  align-self: flex-end; /* Lock to bottom of container */
-}
-
-#sub-header aside h1 { /* Display name */
-  font-family: Georgia;
-  font-size: 20px;
-}
-
-#sub-header aside h2 { /* Username */
-  font-size: 18px;
-}
-
-#sub-header #pageidentifier q { /* Page quote */
-  font-family: Georgia;
-  color: silver;
-  align-self: flex-start; /* Lock to top of container */
-}
-
-
-
-
-
 
 
 
 
 
 /* ========== MAIN PAGE CONTENT ========== */
-#page-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+@media all {
+  
+  #page-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
 
-  width: 100%; /* Occupy full width of #main */
-  gap: 16px;
-}
+    width: 100%; /* Occupy full width of main */
+    gap: 16px;
+  }
 
-#page-content #about {
-  flex-basis: 100%;
-}
-
-
-
-
+  #page-content #about {
+    flex-basis: 100%;
+  }
 
 
 
@@ -504,209 +491,225 @@ header button { /* "search" button */
 
 
 
-
-/* --- About section outermost container --- */
-#page-content #about-container {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
 }
 
 
+/* ========== ABOUT SECTION ========== */
+@media all {
 
-/* --- nav atop the about section --- */
-.mainnav {
-  display: flex;
-  box-sizing: border-box;
+  /* --- About section outermost container --- */
+  #page-content #about-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 
-  background-image: var(--skin-about-head);
-  background-color: var(--dark-color, #000000);
-  background-repeat: no-repeat;
-  background-position: right center;
+    width: 100%;
+  }
+  
+    /* --- nav atop the about section --- */
+  .mainnav {
+    display: flex;
+    box-sizing: border-box;
 
-  font-weight: bold;
+    background-image: var(--skin-about-head);
+    background-color: var(--dark-color, #000000);
+    background-repeat: no-repeat;
+    background-position: right center;
 
-  padding-inline: 16px;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-}
+    font-weight: bold;
 
-.mainnav a {
-  color: var(--messyng-green, #00FF4F);
+    padding-inline: 16px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+  }
 
-  text-decoration: none;
+  .mainnav a {
+    color: var(--messyng-green, #00FF4F);
 
-  padding: 16px;
+    text-decoration: none;
 
-  transition: var(--transition, all 0.5s ease-in-out);
-}
+    padding: 16px;
 
-.mainnav a:hover {
-  color: var(--dark-color, #000000);
-  background-color: var(--light-color, #FFFFFF);
+    transition: var(--transition, all 0.5s ease-in-out);
+  }
 
-  cursor: pointer;
-}
+  .mainnav a:hover {
+    color: var(--dark-color, #000000);
+    background-color: var(--light-color, #FFFFFF);
 
-
-
-/* --- Container for the about section columns */
-#page-content #about > * {
-  max-width: 500px;
-  box-sizing: border-box;
-}
-
-#about { /* Container for the 3 about columns */
-  display: flex;
-  justify-content: space-around;
-
-  background-image: var(--skin-about-bground);
-  background-color: var(--dark-color, #000000);
-  background-size: cover;
-  color: var(--light-color, #FFFFFF);
-}
-
-.about-col { /* Each individual columns sub container */
-  display: flex;
-  flex-direction: column;
-
-  width: 30%;
-  gap: 16px;
-  padding: 16px;
-}
-
-.about-col a {
-  color: var(--light-color, #FFFFFF);
-}
-
-.about-col h2 {
-  background: unset;
-  padding-inline: 0px;
-}
-
-.about-col h3 {
-  padding-block: 8px;
-}
-
-.about-col figcaption {
-  font-size: 120%;
-  text-align: left;
-}
+    cursor: pointer;
+  }
 
 
 
-/* - Things within column 1 - */
+  /* --- Container for the about section columns */
+  #page-content #about > * {
+    max-width: 500px;
+    box-sizing: border-box;
+  }
 
-.about-col.left { /* The column itself */
-  width: 20%; /* Would like this one to be a hair narrower */
-}
+  #about { /* Container for the 3 about columns */
+    display: flex;
+    justify-content: space-around;
 
-#profilepic { /* Not the container, the actual img */
-  display: block;
+    background-image: var(--skin-about-bground);
+    background-color: var(--dark-color, #000000);
+    background-size: cover;
+    color: var(--light-color, #FFFFFF);
+  }
 
-  background-image: url("media/defaults/bebo-default-profile-pic.gif"); /* Might be weirdly counter intuitive but I'm trying to have it so that there's a default pfp in case the file of the selected pfp is broken */
-  background-repeat: no-repeat;
-  background-size: cover;
+  .about-col { /* Each individual columns sub container */
+    display: flex;
+    flex-direction: column;
 
-  max-width: 300px;
-  width: 90%;
-  height: auto;
+    width: 30%;
+    gap: 16px;
+    padding: 16px;
+  }
 
-  aspect-ratio: 1 / 1;
-}
+  .about-col a {
+    color: var(--light-color, #FFFFFF);
+  }
 
-#about-list {
-  list-style: none;
-}
+  .about-col h2 {
+    background: unset;
+    padding-inline: 0px;
+  }
 
-/* - Things within column 2 - */
-#other-half img {
-  display: block;
+  .about-col h3 {
+    padding-block: 8px;
+  }
 
-  width: 35%;
-  height: auto;
-  margin-bottom: 16px;
-}
-
-#other-half figcaption {
-  margin-bottom: 8px;
-}
-
-/* - Things within column 3 - */
-
-
-
-
-
-
+  .about-col figcaption {
+    font-size: 120%;
+    text-align: left;
+  }
 
 
 
+  /* - Things within column 1 - */
 
+  .about-col.left { /* The column itself */
+    width: 20%; /* Would like this one to be a hair narrower */
+  }
 
-/* ========== COLUMNS OF PAGE CONTENT ========== */
-#page-content #left,
-#page-content #right {
-  display: flex;
-  flex-direction: column;
-  align-self: stretch; /* if either the left of right is shorter than the other, this will stretch the container so that the widgets lock to the top */
+  #profilepic { /* Not the container, the actual img */
+    display: block;
 
-  max-width: calc(50% - 8px);
-  flex-grow: 1;
-  gap: 16px;
+    background-image: url("media/defaults/bebo-default-profile-pic.gif"); /* Might be weirdly counter intuitive but I'm trying to have it so that there's a default pfp in case the file of the selected pfp is broken */
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    max-width: 300px;
+    width: 90%;
+    height: auto;
+
+    aspect-ratio: 1 / 1;
+  }
+
+  #about-list {
+    list-style: none;
+  }
+
+  /* - Things within column 2 - */
+  #other-half img {
+    display: block;
+
+    width: 35%;
+    height: auto;
+    margin-bottom: 16px;
+  }
+
+  #other-half figcaption {
+    margin-bottom: 8px;
+  }
+
+  /* - Things within column 3 - */
 }
 
 
 
-/* --- Styling true of every widget container */
-#page-content article { /* - Widget container itself - */
-  position: relative;
+
+
+
+
+
+
+
+/* ========== COLUMNS OF PAGE CONTENT & COMPONENT STRUCTURE ========== */
+@media all {
+    
+  #page-content #left,
+  #page-content #right {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch; /* if either the left of right is shorter than the other, this will stretch the container so that the widgets lock to the top */
+
+    max-width: calc(50% - 8px);
+    flex-grow: 1;
+    gap: 16px;
+  }
+
+  /* ----- Left side ----- */
+  #page-content #left {
+    
+  }
+
+  /* ----- Right side ----- */
+  #page-content #right {
+  
+  }
+
+
+
+  /* --- Styling true of every widget container */
+  #page-content section { /* - Widget container itself - */
+
+  }
+
+  #page-content section > h2 { /* - Title of type of widget - */
+    display: block;
+
+    color: var(--light-color, #FFFFFF);
+    background-image: var(--skin-component-head);
+    background-size: cover;
+
+    padding: 16px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    margin-bottom: 0px;
+  }
+
+  .component { /* The part of the widget that isn't the title */
+    overflow: auto; /* Not sure if this is what I want */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    font-weight: bold;
+
+    color: var(--light-color, #FFFFFF);
+    background-color: var(--dark-color, #000000);
+
+    padding: 16px;
+  }
+
+  .component h3 { /* - subheading, left side - */
+    color: var(--light-color, #FFFFFF);
+    font-weight: bold;
+  }
+
+  .component h4 { /* - Additional option, usually a link - /
+    z-index: 1; /* Just trying to ensure this link is always on top */
+  }
+
+  .component h4 a { /* - A lot of these h4's are also links so want to over ride things - */
+    cursor: var(--cursor, pointer), auto;
+    color: var(--light-color, #FFFFFF);
+    text-decoration: none;
+  }
+
 }
-
-article h2 { /* - Title of type of widget - */
-  display: block;
-
-  color: var(--light-color, #FFFFFF);
-  background-image: var(--skin-component-head);
-  background-size: cover;
-
-  padding: 16px;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-  margin-bottom: 0px;
-}
-
-.component { /* The part of the widget that isn't the title */
-  overflow: auto; /* Not sure if this is what I want */
-
-  font-weight: bold;
-
-  color: var(--light-color, #FFFFFF);
-  background-color: var(--dark-color, #000000);
-
-  padding: 16px;
-}
-
-article h3 { /* - subheading, left side - */
-  color: var(--light-color, #FFFFFF);
-  font-weight: bold;
-}
-
-article h4 { /* - Additional option, usually a link - */
-  position: absolute;
-
-  right: 0px;
-  padding-inline: inherit;
-  z-index: 1; /* Just trying to ensure this link is always on top */
-}
-
-article h4 a { /* - A lot of these h4's are also links so want to over ride things - */
-  cursor: var(--cursor, pointer), auto;
-  color: var(--light-color, #FFFFFF);
-  text-decoration: none;
-}
-
-
 
 
 
@@ -823,835 +826,804 @@ article h4 a { /* - A lot of these h4's are also links so want to over ride thin
 
 
 
-/* ----- Left side ----- */
-#page-content #left {
-  
-}
+
+
+
+
+
 
 /* --- Friends - top 16 --- */
-#top16 {
+@media all {
+
+  #top16 {
+
+  }
+
+  #top16 .component > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+
+    gap: 64px;
+    padding-top: 16px;
+  }
+
+  #top16 figure {
+    /* using outline so that I can inset it and hide it behind the img to only appear if the image is a broken link */
+    /* outline: 2px solid silver; 
+    outline-offset: -2px; */
+  }
+
+  #top16 a {
+    text-decoration: none;
+  }
+
+  #top16 img {
+    position: relative;
+    display: block;
+
+    height: auto;
+    width: 100%;
+    z-index: 1;
+  }
+
+  #top16 figcaption {
+    color: var(--light-color, #FFFFFF);
+  }
+
+  #top16 {
+    font-size: 0.75em;
+  }
 
 }
-
-#top16 .component > div {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-
-  gap: 64px;
-  padding-top: 16px;
-}
-
-#top16 figure {
-  /* using outline so that I can inset it and hide it behind the img to only appear if the image is a broken link */
-  /* outline: 2px solid silver; 
-  outline-offset: -2px; */
-}
-
-#top16 a {
-  text-decoration: none;
-}
-
-#top16 img {
-  position: relative;
-  display: block;
-
-  height: auto;
-  width: 100%;
-  z-index: 1;
-}
-
-#top16 figcaption {
-  color: var(--light-color, #FFFFFF);
-}
-
-#top16 {
-  font-size: 0.75em;
-}
-
-
-
 
 
 
 /* --- Videos --- */
-#flashbox {
+@media all {
 
-}
+  #flashbox {
 
-#flashbox video {
-  display: block;
+  }
   
-  width: 80%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  padding: 1em;
-  margin-inline: auto;
-}
-
-/* there's multiple content carousels and I want the styling of all of them to be the same */
-
-.slideshow-container {
-  /* I don't think I'll use */
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-}
-
-
-/* - Each video in the flashbox carousel - */
-.myVideos {
-  /* .myslides is the class given to the contents of the carousel. The CSS keeps them hidden, the JS gives them the inline block style to display them. */
-  display: none;
-}
-
-
-/* - Left & right chevrons - */
-.prev,
-.next {
-  cursor: pointer;
-  position: absolute;
-  user-select: none; /* Makes the chevrons not selectable or highlightable */
-
-  color: var(--light-color, #FFFFFF);
-  background-color: transparent;
-
-  font-size: 18px;
-  font-weight: bold;
-
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  border-radius: 5px;
-  margin-top: -22px;
+  #flashbox video {
+    display: block;
+    
+    width: 80%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    padding: 1em;
+    margin-inline: auto;
+  }
   
-  transition: var(--transition, all 0.5s ease-in-out);
-}
-
-.next {
-  right: 0;
-}
-
-.prev:hover,
-.next:hover {
-  color: var(--dark-color, #000000);
-  background-color: var(--light-color, #FFFFFF);
-}
-
-/* - Video title at bottom of video - */
-.text { /* Maybe animate to hide after a few seconds and show again on hover? */
-  position: absolute;
-
-  color: var(--light-color, #FFFFFF);
+  /* there's multiple content carousels and I want the styling of all of them to be the same */
   
-  font-size: 15px;
-  text-align: center;
-
-  bottom: 8px;
-  width: 100%;
-  padding-block: 8px;
-  padding-inline: 12px;
-}
-
-.numbertext { /* The "1 / n" number in the top left corner */
-  position: absolute;
-
-  color: var(--light-color, #FFFFFF);
-
-  font-size: 12px;
-
-  top: 0;
-  padding-inline: 16px;
-}
-
-/* - Dots at the bottom to show which option is selected - */
-.thumbnailContainer { /* I plan on replacing these dots with video thumbnails, so retitling the container */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  text-align: center; /* Extracted from inline cause I want it all controlled by CSS */
-
-  gap: 32px;
-}
-
-/* - Each individual thumbnail container - */
-.thumbnail {
-  display: inline-block;
-  cursor: pointer;
-
-  background-color: #bbb;
-
-  height: 15px;
-  width: 15px;
-  border-radius: 50%;
+  .slideshow-container {
+    /* I don't think I'll use */
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
   
-  transition: var(--transition, all 0.5s ease-in-out);
+  
+  /* - Each video in the flashbox carousel - */
+  .myVideos {
+    /* .myslides is the class given to the contents of the carousel. The CSS keeps them hidden, the JS gives them the inline block style to display them. */
+    display: none;
+  }
+  
+  
+  /* - Left & right chevrons - */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    user-select: none; /* Makes the chevrons not selectable or highlightable */
+  
+    color: var(--light-color, #FFFFFF);
+    background-color: transparent;
+  
+    font-size: 18px;
+    font-weight: bold;
+  
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    border-radius: 5px;
+    margin-top: -22px;
+    
+    transition: var(--transition, all 0.5s ease-in-out);
+  }
+  
+  .next {
+    right: 0;
+  }
+  
+  .prev:hover,
+  .next:hover {
+    color: var(--dark-color, #000000);
+    background-color: var(--light-color, #FFFFFF);
+  }
+  
+  /* - Video title at bottom of video - */
+  .text { /* Maybe animate to hide after a few seconds and show again on hover? */
+    position: absolute;
+  
+    color: var(--light-color, #FFFFFF);
+    
+    font-size: 15px;
+    text-align: center;
+  
+    bottom: 8px;
+    width: 100%;
+    padding-block: 8px;
+    padding-inline: 12px;
+  }
+  
+  .numbertext { /* The "1 / n" number in the top left corner */
+    position: absolute;
+  
+    color: var(--light-color, #FFFFFF);
+  
+    font-size: 12px;
+  
+    top: 0;
+    padding-inline: 16px;
+  }
+  
+  /* - Dots at the bottom to show which option is selected - */
+  .thumbnailContainer { /* I plan on replacing these dots with video thumbnails, so retitling the container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    text-align: center; /* Extracted from inline cause I want it all controlled by CSS */
+  
+    gap: 32px;
+    width: 100%;
+  }
+  
+  /* - Each individual thumbnail container - */
+  .thumbnail {
+    display: inline-block;
+    cursor: pointer;
+  
+    background-color: #bbb;
+  
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    
+    transition: var(--transition, all 0.5s ease-in-out);
+  }
+  
+  /* - Active dot or hovered dot - */
+  .active,
+  .thumbnail:hover {
+    background-color: #717171;
+  }
 }
-
-/* - Active dot or hovered dot - */
-.active,
-.thumbnail:hover {
-  background-color: #717171;
-}
-
-
-
-
-
-
-
-
-
-
 
 
 
 /* --- Photos - top 9 --- */
-#photos {
+@media all {
+  #photos {
 
+  }
+  
+  #photos .component > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  
+    gap: 64px;
+    padding-top: 16px;
+  }
+  
+  #photos figure {
+    /* using outline so that I can inset it and hide it behind the img to only appear if the image is a broken link */
+    /* outline: 2px solid silver; 
+    outline-offset: -2px; */
+  }
+  
+  #photos a {
+    text-decoration: none;
+  }
+  
+  #photos img {
+    position: relative;
+    display: block;
+  
+    height: auto;
+    width: 100%;
+    z-index: 1;
+  }
+  
+  #photos figcaption {
+    color: var(--light-color, #FFFFFF);
+  }
+  
+  #photos {
+    font-size: 0.75em;
+  }
 }
-
-#photos .component > div {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-
-  gap: 64px;
-  padding-top: 16px;
-}
-
-#photos figure {
-  /* using outline so that I can inset it and hide it behind the img to only appear if the image is a broken link */
-  /* outline: 2px solid silver; 
-  outline-offset: -2px; */
-}
-
-#photos a {
-  text-decoration: none;
-}
-
-#photos img {
-  position: relative;
-  display: block;
-
-  height: auto;
-  width: 100%;
-  z-index: 1;
-}
-
-#photos figcaption {
-  color: var(--light-color, #FFFFFF);
-}
-
-#photos {
-  font-size: 0.75em;
-}
-
 
 
 
 /* --- Widget - Model viewer --- */
-#widget {
+@media all {
+  #widget {
 
-}
-/* 3D model viewer widget */
-
-#viewer {
-  display: block;
-  position: relative;
-  overflow: hidden; /* Because it's changing the display, I don't think hiding the overflow is necessary */
-  align-items: center; /* Not display: flex; so doesn't work */
-
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  margin-inline: auto;
-}
-
-model-viewer {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-}
-
-/* - Each 3D render in the widget carousel - */
-.myRenders {
-  display: none;
-}
-
-
-/* - Left & right chevrons - */
-#widget .prev,
-#widget .next {
-  cursor: pointer;
-  position: absolute;
-  user-select: none; /* Makes the chevrons not selectable or highlightable */
-
-  color: var(--light-color, #FFFFFF);
-  background-color: transparent;
-
-  font-size: 18px;
-  font-weight: bold;
-
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  border-radius: 5px;
-  margin-top: -22px;
+  }
+  /* 3D model viewer widget */
   
-  transition: var(--transition, all 0.5s ease-in-out);
-}
-
-#widget .next {
-  right: 0;
-}
-
-#widget .prev:hover,
-#widget .next:hover {
-  color: var(--dark-color, #000000);
-  background-color: var(--light-color, #FFFFFF);
-}
-
-/* - Render title at bottom of video - */
-#widget .text { /* Maybe animate to hide after a few seconds and show again on hover? */
-  position: absolute;
-
-  color: var(--light-color, #FFFFFF);
+  #viewer {
+    display: block;
+    position: relative;
+    overflow: hidden; /* Because it's changing the display, I don't think hiding the overflow is necessary */
+    align-items: center; /* Not display: flex; so doesn't work */
   
-  font-size: 15px;
-  text-align: center;
-
-  bottom: 8px;
-  width: 100%;
-  padding-block: 8px;
-  padding-inline: 12px;
-}
-
-#widget .numbertext { /* The "1 / n" number in the top left corner */
-  position: absolute;
-
-  color: var(--light-color, #FFFFFF);
-
-  font-size: 12px;
-
-  top: 0;
-  padding-inline: 16px;
-}
-
-/* - Dots at the bottom to show which option is selected - */
-.dot-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  text-align: center; /* Extracted from inline cause I want it all controlled by CSS */
-
-  gap: 32px;
-}
-
-/* - Each individual dot - */
-.dot {
-  display: inline-block;
-  cursor: pointer;
-
-  background-color: #bbb;
-
-  height: 15px;
-  width: 15px;
-  border-radius: 50%;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-inline: auto;
+  }
   
-  transition: var(--transition, all 0.5s ease-in-out);
+  model-viewer {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+  
+  /* - Each 3D render in the widget carousel - */
+  .myRenders {
+    display: none;
+  }
+  
+  
+  /* - Left & right chevrons - */
+  #widget .prev,
+  #widget .next {
+    cursor: pointer;
+    position: absolute;
+    user-select: none; /* Makes the chevrons not selectable or highlightable */
+  
+    color: var(--light-color, #FFFFFF);
+    background-color: transparent;
+  
+    font-size: 18px;
+    font-weight: bold;
+  
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    border-radius: 5px;
+    margin-top: -22px;
+    
+    transition: var(--transition, all 0.5s ease-in-out);
+  }
+  
+  #widget .next {
+    right: 0;
+  }
+  
+  #widget .prev:hover,
+  #widget .next:hover {
+    color: var(--dark-color, #000000);
+    background-color: var(--light-color, #FFFFFF);
+  }
+  
+  /* - Render title at bottom of video - */
+  #widget .text { /* Maybe animate to hide after a few seconds and show again on hover? */
+    position: absolute;
+  
+    color: var(--light-color, #FFFFFF);
+    
+    font-size: 15px;
+    text-align: center;
+  
+    bottom: 8px;
+    width: 100%;
+    padding-block: 8px;
+    padding-inline: 12px;
+  }
+  
+  #widget .numbertext { /* The "1 / n" number in the top left corner */
+    position: absolute;
+  
+    color: var(--light-color, #FFFFFF);
+  
+    font-size: 12px;
+  
+    top: 0;
+    padding-inline: 16px;
+  }
+  
+  /* - Dots at the bottom to show which option is selected - */
+  .dot-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    text-align: center; /* Extracted from inline cause I want it all controlled by CSS */
+  
+    gap: 32px;
+    width: 100%;
+  }
+  
+  /* - Each individual dot - */
+  .dot {
+    display: inline-block;
+    cursor: pointer;
+  
+    background-color: #bbb;
+  
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    
+    transition: var(--transition, all 0.5s ease-in-out);
+  }
+  
+  /* - Active dot or hovered dot - */
+  #widget .active,
+  .dot:hover {
+    background-color: #717171;
+  }
 }
-
-/* - Active dot or hovered dot - */
-#widget .active,
-.dot:hover {
-  background-color: #717171;
-}
-
-
 
 
 
 /* --- Whiteboard --- */
-#whiteboard {
+@media all {
+  #whiteboard {
 
+  }
+
+  #drawingCanvas {
+    background-color: white;
+  }
+
+  #toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+  }
 }
-
 
 
 
 /* --- Solitayre --- */
-#solitayre {
+@media all {
+  #solitayre {
 
-}
-
-#putgamehere { /* The innermost container for the game. Forms the gamemat itself */
-  background-color: #008001;
-
-  border-radius: 15px;
-  border: 1px inset silver;
-  margin-top: 16px;
-}
-
-#putgamehere .workspace {
-  max-width: 720px;
-  margin-inline: auto;
-}
-
-#putgamehere .hotspot { /* Symbol found on the green basemat, usually a symbol like _ to show it's empty */
-  text-align: center;
-}
-
-.solitaireprefs { /* Preferences / options window */
-  position: absolute;
-  box-sizing: border-box;
+  }
   
-  background-color: #33BB77EE;
-
-  left: 5%;
-  top: 5%;
-  width: 90%;
-  height: 90%;
-  padding: 16px;
+  #putgamehere { /* The innermost container for the game. Forms the gamemat itself */
+    background-color: #008001;
   
-  border-radius: 15px;
-  box-shadow: 0px 0px 10px 10px #00000033;
-  z-index: 100;
-}
-
-.solitaireprefs p,
-.solitaireprefs h3,
-.solitaireprefs h4 {
-  position: relative;
-  color: black
-}
-
-.solitaireprefs form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-
-  width: 100%;
-  height: 100%;
-}
-
-.solitaireprefs form > div { /* The row in the options where it shows the preview of the 4 cards in use */
-  display: flex !important; /* !important is temporary until I fix the js */
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  height: 100%;
-  gap: 8px;
-}
-.solitaireprefs form > div > div { /* This shouldn't be two divs, makes it hard to style */
-  display: flex;
-  gap: 8px;
-}
-
-
-
-/* ----- Right side ----- */
-#page-content #right {
+    width: 100%;
+    border-radius: 15px;
+    border: 1px inset silver;
+    margin-top: 16px;
+  }
   
+  #putgamehere .workspace {
+    max-width: 720px;
+    margin-inline: auto;
+  }
+  
+  #putgamehere .hotspot { /* Symbol found on the green basemat, usually a symbol like _ to show it's empty */
+    text-align: center;
+  }
+  
+  .solitaireprefs { /* Preferences / options window */
+    position: absolute;
+    box-sizing: border-box;
+    
+    background-color: #33BB77EE;
+  
+    left: 5%;
+    top: 5%;
+    width: 90%;
+    height: 90%;
+    padding: 16px;
+    
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px 10px #00000033;
+    z-index: 100;
+  }
+  
+  .solitaireprefs p,
+  .solitaireprefs h3,
+  .solitaireprefs h4 {
+    position: relative;
+    color: black
+  }
+  
+  .solitaireprefs form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  
+    width: 100%;
+    height: 100%;
+  }
+  
+  .solitaireprefs form > div { /* The row in the options where it shows the preview of the 4 cards in use */
+    display: flex !important; /* !important is temporary until I fix the js */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    height: 100%;
+    gap: 8px;
+  }
+  .solitaireprefs form > div > div { /* This shouldn't be two divs, makes it hard to style */
+    display: flex;
+    gap: 8px;
+  }
+
 }
+
+
 
 /* --- Blog --- */
-#blog {
+@media all {
+  #blog {
 
-}
-
-#blog p {
-  margin-top: 16px;
+  }
+  
+  #blog p {
+    margin-top: 16px;
+  }
 }
 
 
 
 /* --- Quiz --- */
-#quiz {
+@media all {
+  #quiz {
 
+  }
 }
 
 
 
 /* --- Polls --- */
-#polls {
+@media all {
+  #polls {
 
-}
-
-#polls form {
-  display: flex;
-  flex-direction: column;
-}
-
-#polls form::after {
-  content: "";
-
-  background-color: silver;
-
-  height: 1px;
-  width: 100%;
-  margin-block: 16px;
-}
-
-#polls form:last-of-type::after {
-  display: none;
+  }
+  
+  #polls form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #polls form::after {
+    content: "";
+  
+    background-color: silver;
+  
+    height: 1px;
+    width: 100%;
+    margin-block: 16px;
+  }
+  
+  #polls form:last-of-type::after {
+    display: none;
+  }
 }
 
 
 
 /* --- Events --- */
-#events {
+@media all {
+  #events {
 
+  }
 }
 
 
 
 /* --- Maryo --- */
-#maryo {
+@media all {
+  #maryo {
 
+  }
 }
 
 
 
 /* --- Wall --- */
-#wall {
+@media all {
+  #wall {
 
-}
-
-#wall form { /* Container for comment input form  */
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding-block: 16px;
-}
-
-#wall form input { /* Submit comment button */
-  align-self: flex-end;
-  width: 25%;
-}
-
-#wall form::after { /* Horizontal rule after comment form */
-  content: "";
-  display: block;
-  grid-column: 1 / 3;
-  background-color: silver;
-  height: 1px;
-  width: 100%;
-  margin-block: 16px;
-}
-
-.comment-block { /* Container */
-  display: grid;
-  grid-template-columns: auto 1fr;
-}
-
-.profilepicwall { /* Commenter's profile picture */
-  display: inline;
-  float: left;
-
-  grid-row: 1 / 3;
+  }
   
-  padding-right: 16px;
-  padding-bottom: 16px;
-  shape-margin: 16px;
-}
-
-.wall-display-name { /* Commenter's display name */
-  color: var(--messyng-green);
-
-  font-size: 16px;
-
-  margin-bottom: 8px;
-}
-
-.wall-user-name { /* Commenter's username */
-  color: var(--messyng-green);
-
-  font-size: 14px; /* Should be a hair smaller than the display name */
+  #wall form { /* Container for comment input form  */
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-block: 16px;
+  }
   
-  margin-bottom: 16px;
+  #wall form input { /* Submit comment button */
+    align-self: flex-end;
+    width: 25%;
+  }
+  
+  #wall form::after { /* Horizontal rule after comment form */
+    content: "";
+    display: block;
+    grid-column: 1 / 3;
+    background-color: silver;
+    height: 1px;
+    width: 100%;
+    margin-block: 16px;
+  }
+  
+  .comment-block { /* Container */
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+  
+  .profilepicwall { /* Commenter's profile picture */
+    display: inline;
+    float: left;
+  
+    grid-row: 1 / 3;
+    
+    padding-right: 16px;
+    padding-bottom: 16px;
+    shape-margin: 16px;
+  }
+  
+  .wall-display-name { /* Commenter's display name */
+    color: var(--messyng-green);
+  
+    font-size: 16px;
+  
+    margin-bottom: 8px;
+  }
+  
+  .wall-user-name { /* Commenter's username */
+    color: var(--messyng-green);
+  
+    font-size: 14px; /* Should be a hair smaller than the display name */
+    
+    margin-bottom: 16px;
+  }
+  
+  .comment-block p { /* Text of the comment */
+    grid-column: 2 / 3;
+  }
+  
+  .comment-block p.age { /* Age of the comment, displayed bottom right */
+    grid-column-start: 1;
+    grid-column: 1 / 3;
+  
+    font-size: 85%; /* Should be a hair smaller than the comment */
+    text-align: right;
+    text-decoration-style: italic;
+  }
+  
+  .comment-block::after { /* Horizontal rule after each comment block */
+    content: "";
+    display: block;
+  
+    grid-column: 1 / 3;
+  
+    background-color: silver;
+  
+    height: 1px;
+    width: 100%;
+    margin-block: 16px;
+  }
+  
+  .comment-block:last-of-type::after { /* Except the last one in the section */
+    display: none;
+  }
 }
 
-.comment-block p { /* Text of the comment */
-  grid-column: 2 / 3;
-}
-
-.comment-block p.age { /* Age of the comment, displayed bottom right */
-  grid-column-start: 1;
-  grid-column: 1 / 3;
-
-  font-size: 85%; /* Should be a hair smaller than the comment */
-  text-align: right;
-  text-decoration-style: italic;
-}
-
-.comment-block::after { /* Horizontal rule after each comment block */
-  content: "";
-  display: block;
-
-  grid-column: 1 / 3;
-
-  background-color: silver;
-
-  height: 1px;
-  width: 100%;
-  margin-block: 16px;
-}
-
-.comment-block:last-of-type::after { /* Except the last one in the section */
-  display: none;
-}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#content {
-  margin-top: 5em;
-  margin-bottom: 5em;
-  columns: 2;
-}
-
-#content section {
-  margin-bottom: 5em;
-}
 
 
 
 
 /* ========== FOOTER ========== */
-footer {
-  box-sizing: border-box;
-  text-align: center;
+@media all {
 
-  background-color: var(--dark-color, #000000);
-  color: var(--light-color, #FFFFFF);
-  background-size: 100%;
-  background-size: cover;
+  footer {
+    box-sizing: border-box;
+    text-align: center;
 
-  width: 100%;
-  height: auto;
-  padding-block: 30px;
+    background-color: var(--dark-color, #000000);
+    color: var(--light-color, #FFFFFF);
+    background-size: 100%;
+    background-size: cover;
+
+    width: 100%;
+    height: auto;
+    padding-block: 30px;
+  }
+
+  footer a {
+    text-decoration: none;
+  }
+
+  footer h6 {
+    font-size: 16px;
+
+    flex-basis: 100%;
+    margin: 0px; /* Over ride default */
+  }
+
+  footer #footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 16px;
+  }
+
+  footer ul { /* Main nav menu container */
+    display: flex;
+    justify-content: space-between;
+
+    gap: 8px; /* fatfingers support */
+    padding: 0px; /* Weird default to over ride */
+  }
+
+  footer li {
+    display: flex;
+    align-items: center;
+    
+    list-style: none;
+
+    gap: 8px;
+
+    transition: var(--transition, all 0.5s ease-in-out);
+  }
+
+  footer li::after { /* Puts vert bar between list items */
+    content: " | ";
+  }
+
+  footer li:last-of-type::after {
+    content: "";
+    display: none;
+  }
+
+
+
+  /* --- Socials --- */
+  footer #footer-container > nav { /* container */
+    display: flex;
+  }
+
+  footer #footer-container > nav li a {
+    box-sizing: border-box;
+
+    background-color: transparent;
+    color: var(--messyng-pink, #FF00EE);
+
+    text-align: center;
+
+    padding-block: 8px;
+    padding-inline: 16px;
+    border-radius: 8px;
+
+    transition: var(--transition, all 0.5s ease-in-out);
+  }
+
+  footer #footer-container > nav li a:hover {
+    background-color: var(--light-color, #FFFFFF);
+    color: var(--dark-color, #000000);
+  }
+
+
+
+  /* --- "Messyng are represented by" --- */
+  footer #footer-container > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    gap: 16px;
+  }
+
+  footer #footer-container > div li a {
+    box-sizing: border-box;
+
+    background-color: transparent;
+    color: var(--messyng-pink, #FF00EE);
+
+    text-align: center;
+
+    padding: 0px;
+    border-bottom: 1px solid transparent;
+    border-radius: 0px;
+
+    transition: var(--transition, all 0.5s ease-in-out);
+  }
+
+  footer #footer-container > div li a:hover {
+    background-color: transparent;
+    color: var(--messyng-green, #00FF4F);
+    border-bottom: 1px solid var(--messyng-green, #00FF4F);
+  }
+
+
+
+  /* --- Newsletter sign up form --- */
+  footer form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    gap: 16px;
+  }
+
+  footer span {
+    font-size: 9px;
+  }
+
+  footer form span {
+    flex-basis: 100%;
+  }
+
+  footer input { /* search text area */
+    line-height: 16px;
+
+    max-width: 300px;
+    padding: 5px;
+    border: 1px solid #CCCCCC;
+    border-radius: 8px;
+    margin: 0px;
+  }
+
+  footer button { /* "search" button */
+    box-sizing: border-box;
+
+    line-height: 16px;
+
+    padding: 5px;
+    border: 1px solid #CCCCCC;
+    border-radius: 8px;
+    margin: 0px;
+
+    transition: var(--transition, all 0.5s ease-in-out);
+  }
+
+
+
+  /* --- Copyright info at the very bottom of the footer --- */
+  footer small {
+    font-size: 9px;
+  }
+
+  footer small a { /* Hidden hyperlink within copyright statement */
+    color: var(--light-color, #FFFFFF);
+  }
+
+  footer small a:hover {
+    color: var(--light-color, #FFFFFF); /* Has to be the same as the non hovered */
+  }
+
 }
-
-footer a {
-  text-decoration: none;
-}
-
-footer h6 {
-  font-size: 16px;
-
-  flex-basis: 100%;
-  margin: 0px; /* Over ride default */
-}
-
-footer #footer-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-
-  gap: 16px;
-}
-
-footer ul { /* Main nav menu container */
-  display: flex;
-  justify-content: space-between;
-
-  gap: 8px; /* fatfingers support */
-  padding: 0px; /* Weird default to over ride */
-}
-
-footer li {
-  display: flex;
-  align-items: center;
-  
-  list-style: none;
-
-  gap: 8px;
-
-  transition: var(--transition, all 0.5s ease-in-out);
-}
-
-footer li::after { /* Puts vert bar between list items */
-  content: " | ";
-}
-
-footer li:last-of-type::after {
-  content: "";
-  display: none;
-}
-
-
-
-/* --- Socials --- */
-footer #footer-container > nav { /* container */
-  display: flex;
-}
-
-footer #footer-container > nav li a {
-  box-sizing: border-box;
-
-  background-color: transparent;
-  color: var(--messyng-pink, #FF00EE);
-
-  text-align: center;
-
-  padding-block: 8px;
-  padding-inline: 16px;
-  border-radius: 8px;
-
-  transition: var(--transition, all 0.5s ease-in-out);
-}
-
-footer #footer-container > nav li a:hover {
-  background-color: var(--light-color, #FFFFFF);
-  color: var(--dark-color, #000000);
-}
-
-
-
-/* --- "Messyng are represented by" --- */
-footer #footer-container > div {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-
-  gap: 16px;
-}
-
-footer #footer-container > div li a {
-  box-sizing: border-box;
-
-  background-color: transparent;
-  color: var(--messyng-pink, #FF00EE);
-
-  text-align: center;
-
-  padding: 0px;
-  border-bottom: 1px solid transparent;
-  border-radius: 0px;
-
-  transition: var(--transition, all 0.5s ease-in-out);
-}
-
-footer #footer-container > div li a:hover {
-  background-color: transparent;
-  color: var(--messyng-green, #00FF4F);
-  border-bottom: 1px solid var(--messyng-green, #00FF4F);
-}
-
-
-
-/* --- Newsletter sign up form --- */
-footer form {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-
-  gap: 16px;
-}
-
-footer span {
-  font-size: 9px;
-}
-
-footer form span {
-  flex-basis: 100%;
-}
-
-footer input { /* search text area */
-  line-height: 16px;
-
-  max-width: 300px;
-  padding: 5px;
-  border: 1px solid #CCCCCC;
-  border-radius: 8px;
-  margin: 0px;
-}
-
-footer button { /* "search" button */
-  box-sizing: border-box;
-
-  line-height: 16px;
-
-  padding: 5px;
-  border: 1px solid #CCCCCC;
-  border-radius: 8px;
-  margin: 0px;
-
-  transition: var(--transition, all 0.5s ease-in-out);
-}
-
-
-
-/* --- Copyright info at the very bottom of the footer --- */
-footer small {
-  font-size: 9px;
-}
-
-footer small a { /* Hidden hyperlink within copyright statement */
-  color: var(--light-color, #FFFFFF);
-}
-
-footer small a:hover {
-  color: var(--light-color, #FFFFFF); /* Has to be the same as the non hovered */
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1666,21 +1638,10 @@ footer small a:hover {
 }
 
 
-/* about section stuff */
-
-/* Use this media query to change 2 columns to 1 column if the viewport width is lower than 800px
-@media screen and (max-width: 800px) {
-  .left, .main, .right {
-    width: 100%;
-  }
-} */
-
-
 
 
 
 /* ========== MEDIA QUERIES ========== */
-
 @media screen and (max-width: 999px) {
 
   header {
@@ -1709,9 +1670,12 @@ footer small a:hover {
     justify-content: space-between;
   }
 
-  #page-content #about > * {
+  #page-content #about > .about-col {
     max-width: 100%;
     width: 100%;
+  }
+
+  #page-content #about > .about-col.left {
     text-align: center;
   }
 
@@ -1749,10 +1713,13 @@ footer small a:hover {
   .about-col {
     width: 100%;
   }
+
 }
 
 @media screen and (max-width: 110px) {
+
   .about-col {
     width: 50%;
   }
+
 }

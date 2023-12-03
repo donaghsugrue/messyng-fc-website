@@ -41,14 +41,17 @@ document.addEventListener("DOMContentLoaded", function() {
     // Create a variable to store the number of images in the array
     var options = theImages.length;
 
-    // Randomly select the index of which image to be displayed. need to minus 1 when I actually move it over to being an index.
-    var whichImage = Math.round(Math.random() * (options));
+    // Randomly select the index of which image to be displayed. This generates a number between 0 - 2
+    var whichImage = Math.floor(Math.random() * (options));
 
-    // This chooses it from the array. Not using this rn.
-    // document.getElementById("advertImg").src =  theImages[whichImage - 1]
+    // Testing
+    console.log(whichImage);
+
+    // This chooses it from the array.
+    document.getElementById("advertImg").src =  theImages[whichImage];
 
     // This writes the src as a string and places that in
-    document.getElementById("advertImg").src = "static/media/mock_ads/advert" + String(whichImage) + ".png";
+    // document.getElementById("advertImg").src = "static/media/mock_ads/advert" + String(whichImage) + ".png";
 
     // Just for testing. Uncomment to always load in advert2.png
     // document.getElementById("advertImg").src = "../static/media/mock_ads/advert2.png";
@@ -488,8 +491,8 @@ document.addEventListener("DOMContentLoaded", function() {
 // Flashbox Slideshow
 // Create a slideshow of videos for the flashbox
 
-// Create param
-var videoIndex;
+// Always start on video 1 by default
+var videoIndex = 1;
 
 // Function to change to the next or previous video by pressing the left or right chevrons
 function nextVideo(n) {
@@ -539,9 +542,124 @@ function showVideo(n) {
     // Use the index to determine which thumbnail to give the active class to
     thumbnails[videoIndex - 1].className += " active";
 
-    // testing 
-    console.log("video index", videoIndex);
 }
+
+
+
+
+// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+// 3D render Slideshow
+// Create a slideshow of the 3D renders for the widget
+
+// Set the canvas as a constant and give it a context
+const canvas = document.getElementById("drawingCanvas");
+const ctx = canvas.getContext("2d");
+
+// Set the toolbar as a constant
+const toolbar = document.getElementById("toolbar");
+
+// Variable that effectively controls if mouse is up or down / user is drawing or not
+let isDrawing = false;
+
+// Width of the line that the user is drawing with 
+let lineWidth = 5;
+
+// Starting x and y coordinates of the mouse on click down
+let startX;
+let startY;
+
+// here is the most important part because if you dont replace you will get a DOM 18 exception
+var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+
+window.addEventListener("load", () => {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+});
+
+const draw = (e) => {
+    // I hate that this is a const and not a function, but that's what the guide I followed did
+
+    // If user is not drawing, then ignore this function
+    if (!isDrawing) {
+        return;
+    }
+
+    // If user is drawing, then do the following:
+    ctx.lineWidth = lineWidth;
+    ctx.lineCap = "round";
+
+    // offsetX and offsetY are the coordinates of the mouse relative to the canvas
+    ctx.lineTo(e.offsetX, e.offsetY);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(e.offsetX, e.offsetY);
+
+}
+
+
+// Event Listeners for the toolbar parameters
+toolbar.addEventListener("click", e => {
+
+    // If the target ID of the click event is the clear button, then we want to clear the entire context
+    if (e.target.id === "clearWhiteboard") {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    if (e.target.id === "saveWhiteboard") {
+        window.location.href = image; // it will save locally
+    }
+
+});
+
+
+
+toolbar.addEventListener("change", lineChange => { 
+
+    // If the target ID of the change event is the lineColor, then we want to change the line color
+    if (lineChange.target.id === "lineColor") {
+        ctx.strokeStyle = lineChange.target.value;
+    }
+
+    // If the target ID of the change event is the lineWidth, then we want to change the thickness of the line
+    if (lineChange.target.id === "lineWidth") {
+        lineWidth = lineChange.target.value;
+    }
+
+});
+
+
+// Event Listeners for the canvas - e is "eventObject" apparently, so I think it's important
+canvas.addEventListener("mousedown", e => {
+
+    // Mouse has been clicked on the canvas, so set isDrawing to true and get the starting coordinates
+    isDrawing = true;
+    startX = e.clientX;
+    startY = e.clientY;
+
+
+});
+
+canvas.addEventListener("mouseup", e => {
+
+    // reset isDrawing to false and draw the line
+    isDrawing = false;
+    ctx.stroke();
+
+    // Reset the path so that the next time the user clicks down, it starts a new line
+    ctx.beginPath();
+
+
+});
+
+canvas.addEventListener("mousemove", draw);
+
+
+
+
+
+
+
+
 
 
 
@@ -604,6 +722,4 @@ function showRender(n) {
     // Use the index to determine which dot to give the active class to
     dots[renderIndex - 1].className += " active";
 
-    // testing 
-    console.log("render index", renderIndex);
 }

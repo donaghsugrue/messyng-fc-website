@@ -2,7 +2,7 @@
 
 {% block main_content %}
 
-    <section id = "sub-header" title = "Sub header">
+    <div id = "sub-header" title = "Sub header">
         <noscript>
             Your browser does not support JavaScript and you therefore will miss a large amount of the craic on
             this page.
@@ -24,13 +24,13 @@
 
             <q> "You Miss 100% Of The Shots you Don't Take - Wayne Gretsky" - Michael Scott </q>
         </div>
-    </section>
+    </div>
 
 
 
     <div id = "page-content">
 
-        <section id = "about-container" aria-labelledby = "about-header">
+        <div id = "about-container" aria-labelledby = "about-header">
 
             <nav class = "mainnav">
                 <a href = "{{ url_for('index') }}">All</a>
@@ -48,7 +48,7 @@
                 <a href = "{{ url_for('wall') }}">Wall</a>
             </nav>
 
-            <article id = "about">
+            <section id = "about">
 
                 <div class = "about-col left">
 
@@ -369,13 +369,13 @@
 
                 </div>
 
-            </article>
-        </section>
+            </section>
+        </div>
         
 
 
-        <section id = "left">
-            <article id = "top16">
+        <div id = "left">
+            <section id = "top16">
                 
                 <h2 class = "componentheading">Friends</h2>
                 <div class = "component">
@@ -497,11 +497,11 @@
 
                     </div>
                 </div>
-            </article>
+            </section>
 
 
 
-            <article id = "flashbox">
+            <section id = "flashbox">
                 <h2 class = "componentheading">Flashbox</h2>
                 
                 <div class = "component">
@@ -566,11 +566,11 @@
                         <span class = "thumbnail" onclick = "selectVideo(4)"></span>
                     </div>
 
-            </article>
+            </section>
 
 
 
-            <article id = "photos">
+            <section id = "photos">
                 <h2 class = "componentheading">Photos</h2>
                 <div class = "component">
                     <h3>(Top 9))</h3>
@@ -643,11 +643,11 @@
 
                     </div>
                 </div>
-            </article>
+            </section>
 
 
 
-            <article id = "widget">
+            <section id = "widget">
                 <h2>Widget</h2>
                 <div class = "component">
                     <h4><a href = "{{ url_for('widget') }}">Add To My Profile</a></h4>
@@ -698,23 +698,38 @@
                     </div>
 
                 </div>
-            </article>
+            </section>
 
 
 
-            <article id = "whiteboard" class = "broken">
+            <section id = "whiteboard" class = "broken">
                 <h2>White board</h2>
                 <div class = "component">
                     <h4><a href = "{{ url_for('whiteboard') }}">View all</a></h4>
-                    <canvas>
+                    <canvas id = "drawingCanvas">
 
                     </canvas>
+                    <div id = "toolbar">
+                        <div>
+                            <label for = "lineColor">Line Colour</label>
+                            <input id = "lineColor" name = "lineColor" type = "color">
+                        </div>
+                        
+                        <div>
+                            <label for = "lineWith">Line Width</label>
+                            <input id = "lineWidth" name = "lineWidth" type = "number" value = "5">
+                        </div>
+
+                        <button id = "clearWhiteboard">Clear canvas</button>
+
+                        <button id = "saveWhiteboard">Save</button>
+                    </div>
                 </div>
-            </article>
+            </section>
 
 
 
-            <article id = "solitayre">
+            <section id = "solitayre">
                 <h2>Solitayre</h2>
                 <div class = "component">
                     <h4><a href = "{{ url_for('solitayre') }}">Play on a seperate page</a></h4>
@@ -733,152 +748,156 @@
                         }
                     </script>
                 </div>
-            </article>
-        </section>
+            </section>
+        </div>
 
 
 
-        <section id = "right">
-            <article id = "blog">
+        <div id = "right">
+            <section id = "blog">
                 <h2>Blog</h2>
                 <div class = "component">
                     <h4><a href = "{{ url_for('blog') }}">Read on a seperate page</a></h4>
-                    <ol>
-                        <li>Full Name:</li>
-                        <li>Nicknames:</li>
-                        <li>Birthday:</li>
-                        <li>Place of Birth:</li>
-                        <li>Zodiac Sign:</li>
-                        <li>Male or Female:</li>
-                        <li>Year at College:</li>
-                        <li>School:</li>
-                        <li>Occupation:</li>
-                        <li>Residence:</li>
-                        <li>MSN Screen Name:</li>
 
-                        <p>__Your Appearance___</p>
-                        <li>Hair Color:</li>
-                        <li>Hair Length:</li>
-                        <li>Eye color:</li>
-                        <li>Weight:</li>
-                        <li>Height:</li>
-                        <li>Braces?:</li>
-                        <li>Glasses?:</li>
-                        <li>Piercings:</li>
-                        <li>Tattoos:</li>
-                        <li>Righty or Lefty:</li>
+                    <article>
+                        <h3>Some stuff about me</h3>
+                        <ol>
+                            <li>Full Name:</li>
+                            <li>Nicknames:</li>
+                            <li>Birthday:</li>
+                            <li>Place of Birth:</li>
+                            <li>Zodiac Sign:</li>
+                            <li>Male or Female:</li>
+                            <li>Year at College:</li>
+                            <li>School:</li>
+                            <li>Occupation:</li>
+                            <li>Residence:</li>
+                            <li>MSN Screen Name:</li>
 
-                        <p>___Your 'Firsts'___</p>
-                        <li>First best friend:</li>
-                        <li>First Award:</li>
-                        <li>First Sport You Joined:</li>
-                        <li>First pet:</li>
-                        <li>First Real Vacation:</li>
-                        <li>First Concert:</li>
-                        <li>First Love:</li>
+                            <p>__Your Appearance___</p>
+                            <li>Hair Color:</li>
+                            <li>Hair Length:</li>
+                            <li>Eye color:</li>
+                            <li>Weight:</li>
+                            <li>Height:</li>
+                            <li>Braces?:</li>
+                            <li>Glasses?:</li>
+                            <li>Piercings:</li>
+                            <li>Tattoos:</li>
+                            <li>Righty or Lefty:</li>
 
-                        <p>___ Favorites___</p>
-                        <li>Movie:</li>
-                        <li>TV programme:</li>
-                        <li>Colour:</li>
-                        <li>Rapper:</li>
-                        <li>Band:</li>
-                        <li>Song Right Now:</li>
-                        <li>Friends:</li>
-                        <li>Sweet:</li>
-                        <li>Sport to Play:</li>
-                        <li>Restuarant:</li>
-                        <li>Brand:</li>
-                        <li>Store:</li>
-                        <li>School Subject:</li>
-                        <li>Animal:</li>
-                        <li>Book:</li>
-                        <li>Magazine:</li>
-                        <li>Shoes:</li>
+                            <p>___Your 'Firsts'___</p>
+                            <li>First best friend:</li>
+                            <li>First Award:</li>
+                            <li>First Sport You Joined:</li>
+                            <li>First pet:</li>
+                            <li>First Real Vacation:</li>
+                            <li>First Concert:</li>
+                            <li>First Love:</li>
 
-                        <p>___Currently___</p>
-                        <li>Feeling:</li>
-                        <li>Single or taken:</li>
-                        <li>Have a crush:</li>
-                        <li>Eating:</li>
-                        <li>Drinking:</li>
-                        <li>Typing:</li>
-                        <li>Online?:</li>
-                        <li>Listening To:</li>
-                        <li>Thinking About:</li>
-                        <li>Wanting To:</li>
-                        <li>Watching:</li>
-                        <li>Wearing:</li>
-                        
-                        <p>___Your Future___</p>
-                        <li>Want Kids?:</li>
-                        <li>Want to be Married?:</li>
-                        <li>Careers in Mind:</li>
-                        <li>Where do you want to live:</li>
-                        <li>Car:</li>
-                        
-                        <p>__Which is Better With The Opposite Sex___</p>
-                        <li>Hair color:</li>
-                        <li>Hair length:</li>
-                        <li>Eye color:</li>
-                        <li>Measurements:</li>
-                        <li>Cute or Sexy:</li>
-                        <li>eyes or lips:</li>
-                        <li>Hugs or Kisses:</li>
-                        <li>Short or Tall:</li>
-                        <li>Easygoing or serious:</li>
-                        <li>Romantic or Spontaneous:</li>
-                        <li>Fatty or Skinny:</li>
-                        <li>Sensitive or Loud:</li>
-                        <li>Hook-up or Relationship:</li>
-                        <li>Sweet or Caring:</li>
-                        <li>Trouble Maker or Hesitant one:</li>
+                            <p>___ Favorites___</p>
+                            <li>Movie:</li>
+                            <li>TV programme:</li>
+                            <li>Colour:</li>
+                            <li>Rapper:</li>
+                            <li>Band:</li>
+                            <li>Song Right Now:</li>
+                            <li>Friends:</li>
+                            <li>Sweet:</li>
+                            <li>Sport to Play:</li>
+                            <li>Restuarant:</li>
+                            <li>Brand:</li>
+                            <li>Store:</li>
+                            <li>School Subject:</li>
+                            <li>Animal:</li>
+                            <li>Book:</li>
+                            <li>Magazine:</li>
+                            <li>Shoes:</li>
 
-                        <p>___Have you ever______</p>
-                        <li>Kissed a Stranger:</li>
-                        <li>Had Alcohol:</li>
-                        <li>Smoked:</li>
-                        <li>Ran Away From Home:</li>
-                        <li>Broken a bone: .</li>
-                        <li>Got an X-ray:</li>
-                        <li>Been in a serious relationship:</li>
-                        <li>Broken Someones Heart:</li>
-                        <li>Broke Up With Someone:</li>
-                        <li>Cried When Someone Died:</li>
-                        <li>Cried At School:</li>
-                        
-                        <p>___Do You Believe In___</p>
-                        <li>God:</li>
-                        <li>Miracles:</li>
-                        <li>Love At First sight:</li>
-                        <li>Ghosts:</li>
-                        <li>Aliens:</li>
-                        <li>Soul Mates:</li>
-                        <li>Heaven:</li>
-                        <li>Hell:</li>
-                        <li>Angels: ..</li>
-                        <li>Kissing on The First Date:</li>
-                        <li>Horoscopes:</li>
-                        
-                        <p>___Answer Truthfully___</p>
-                        <li>Is There Someone You Want But You Know You Can't Have:</li>
-                    </ol>
+                            <p>___Currently___</p>
+                            <li>Feeling:</li>
+                            <li>Single or taken:</li>
+                            <li>Have a crush:</li>
+                            <li>Eating:</li>
+                            <li>Drinking:</li>
+                            <li>Typing:</li>
+                            <li>Online?:</li>
+                            <li>Listening To:</li>
+                            <li>Thinking About:</li>
+                            <li>Wanting To:</li>
+                            <li>Watching:</li>
+                            <li>Wearing:</li>
+                            
+                            <p>___Your Future___</p>
+                            <li>Want Kids?:</li>
+                            <li>Want to be Married?:</li>
+                            <li>Careers in Mind:</li>
+                            <li>Where do you want to live:</li>
+                            <li>Car:</li>
+                            
+                            <p>__Which is Better With The Opposite Sex___</p>
+                            <li>Hair color:</li>
+                            <li>Hair length:</li>
+                            <li>Eye color:</li>
+                            <li>Measurements:</li>
+                            <li>Cute or Sexy:</li>
+                            <li>eyes or lips:</li>
+                            <li>Hugs or Kisses:</li>
+                            <li>Short or Tall:</li>
+                            <li>Easygoing or serious:</li>
+                            <li>Romantic or Spontaneous:</li>
+                            <li>Fatty or Skinny:</li>
+                            <li>Sensitive or Loud:</li>
+                            <li>Hook-up or Relationship:</li>
+                            <li>Sweet or Caring:</li>
+                            <li>Trouble Maker or Hesitant one:</li>
+
+                            <p>___Have you ever______</p>
+                            <li>Kissed a Stranger:</li>
+                            <li>Had Alcohol:</li>
+                            <li>Smoked:</li>
+                            <li>Ran Away From Home:</li>
+                            <li>Broken a bone: .</li>
+                            <li>Got an X-ray:</li>
+                            <li>Been in a serious relationship:</li>
+                            <li>Broken Someones Heart:</li>
+                            <li>Broke Up With Someone:</li>
+                            <li>Cried When Someone Died:</li>
+                            <li>Cried At School:</li>
+                            
+                            <p>___Do You Believe In___</p>
+                            <li>God:</li>
+                            <li>Miracles:</li>
+                            <li>Love At First sight:</li>
+                            <li>Ghosts:</li>
+                            <li>Aliens:</li>
+                            <li>Soul Mates:</li>
+                            <li>Heaven:</li>
+                            <li>Hell:</li>
+                            <li>Angels: ..</li>
+                            <li>Kissing on The First Date:</li>
+                            <li>Horoscopes:</li>
+                            
+                            <p>___Answer Truthfully___</p>
+                            <li>Is There Someone You Want But You Know You Can't Have:</li>
+                        </ol>
+                    </article>
                 </div>
-            </article>
+            </section>
 
 
 
-            <article id = "quiz" class = "broken">
+            <section id = "quiz" class = "broken">
                 <h2>Quiz</h2>
                 <div class = "component">
                     <h4><a href = "{{ url_for('quiz') }}">Play on a seperate page</a></h4>
                     <p>Who reallyknows me?? x</p>
                 </div>
-            </article>
+            </section>
 
 
 
-            <article id = "polls" class = "broken">
+            <section id = "polls" class = "broken">
                 <h2>Polls</h2>
                 <div class = "component">
                     <h4><a href = "{{ url_for('polls') }}">Play on a seperate page</a></h4>
@@ -933,11 +952,11 @@
                     </form>
 
                 </div>
-            </article>
+            </section>
 
 
 
-            <article id = "events">
+            <section id = "events">
                 <h2>Events</h2>
                 <div class = "component">
                     <h4><a href = "{{ url_for('events') }}">View all</a></h4>
@@ -950,12 +969,16 @@
                     <h3>Details</h3>
                     <p>Be there or be square !</p>
                 </div>
-            </article>
+            </section>
 
 
 
-            <article id = "maryo" class = "broken">
+            <section id = "maryo" class = "broken">
+
+                <!-- Widget banner -->
                 <h2>Maryo</h2>
+
+                <!-- Widget box -->
                 <div class = "component">
                     <h4><a href = "{{ url_for('maryo') }}">Play on a seperate page</a></h4>
                     <canvas id = "maryobox">
@@ -966,15 +989,20 @@
                         </div -->
                     </canvas>
                 </div>
-            </article>
+            </section>
 
 
 
-            <article id = "wall">
+            <section id = "wall">
+                
+                <!-- Widget banner -->
                 <h2>Wall</h2>
+
+                <!-- Widget box -->
                 <div class = "component">
 
                     <h4><a href = "{{ url_for('wall') }}">View all</a>&nbsp;&vert;&nbsp;<a href = "#wallcomments">post a comment</a></h4>
+
                     <form action = "____________">
                         <label for = "wallcomments">Write on their wall:</label>
 
@@ -1149,8 +1177,8 @@
                     </section>
 
                 </div>
-            </article>
-        </section>
+            </section>
+        </div>
 
     </div>
 
